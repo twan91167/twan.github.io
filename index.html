@@ -91,4 +91,304 @@
             font-size: 25px;
             width: 160px;
             height: 80px;
+        }
+
+        #reactionBox {
+            height: 150px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #555;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 MiniGame Hub</h1>
+    <p>Speel verschillende minigames in één website!</p>
+</header>
+
+<div class="games">
+
+    <!-- Klikspel -->
+    <div class="game">
+        <h2>🖱️ Klik zo snel mogelijk</h2>
+        <p>Je hebt 10 seconden. Hoe vaak kun je klikken?</p>
+
+        <button id="clickButton">KLIK!</button>
+
+        <div class="score">
+            Score: <span id="clickScore">0</span>
+        </div>
+
+        <p>Tijd: <span id="clickTime">10</span>s</p>
+
+        <button onclick="startClickGame()">Start opnieuw</button>
+    </div>
+
+
+    <!-- Raad het getal -->
+    <div class="game">
+        <h2>🔢 Raad het getal</h2>
+        <p>Ik heb een getal tussen 1 en 100 gekozen.</p>
+
+        <input type="number" id="guessInput" min="1" max="100">
+        <button onclick="guessNumber()">Raden</button>
+
+        <p id="guessResult">Doe een gok!</p>
+
+        <button onclick="newNumber()">Nieuw getal</button>
+    </div>
+
+
+    <!-- Steen papier schaar -->
+    <div class="game">
+        <h2>✊ Steen Papier Schaar</h2>
+        <p>Kies je zet:</p>
+
+        <button onclick="playRPS('steen')">✊ Steen</button>
+        <button onclick="playRPS('papier')">📄 Papier</button>
+        <button onclick="playRPS('schaar')">✂️ Schaar</button>
+
+        <p id="rpsResult">Maak een keuze!</p>
+        <p>Jouw score: <span id="playerScore">0</span></p>
+        <p>Computer: <span id="computerScore">0</span></p>
+    </div>
+
+
+    <!-- Reactiespel -->
+    <div class="game">
+        <h2>⚡ Reactiespel</h2>
+        <p>Klik op het vak zodra het groen wordt!</p>
+
+        <div id="reactionBox" onclick="reactionClick()">
+            Klik om te starten
+        </div>
+
+        <p id="reactionResult"></p>
+    </div>
+
+</div>
+
+<footer>
+    🎮 MiniGame Hub — Veel speelplezier!
+</footer>
+
+
+<script>
+
+    // =========================
+    // KLIKSPEL
+    // =========================
+
+    let clickScore = 0;
+    let clickTime = 10;
+    let clickGameRunning = false;
+    let clickTimer;
+
+    const clickButton = document.getElementById("clickButton");
+
+    clickButton.addEventListener("click", function() {
+
+        if (!clickGameRunning) return;
+
+        clickScore++;
+        document.getElementById("clickScore").textContent = clickScore;
+    });
+
+    function startClickGame() {
+
+        clearInterval(clickTimer);
+
+        clickScore = 0;
+        clickTime = 10;
+        clickGameRunning = true;
+
+        document.getElementById("clickScore").textContent = 0;
+        document.getElementById("clickTime").textContent = 10;
+
+        clickTimer = setInterval(function() {
+
+            clickTime--;
+
+            document.getElementById("clickTime").textContent = clickTime;
+
+            if (clickTime <= 0) {
+
+                clearInterval(clickTimer);
+                clickGameRunning = false;
+
+                alert("Tijd voorbij! Je score is: " + clickScore);
+            }
+
+        }, 1000);
+    }
+
+
+    // =========================
+    // RAAD HET GETAL
+    // =========================
+
+    let secretNumber = Math.floor(Math.random() * 100) + 1;
+
+    function guessNumber() {
+
+        const input = document.getElementById("guessInput");
+        const guess = Number(input.value);
+        const result = document.getElementById("guessResult");
+
+        if (!guess || guess < 1 || guess > 100) {
+            result.textContent = "Voer een getal tussen 1 en 100 in!";
+            return;
+        }
+
+        if (guess === secretNumber) {
+            result.textContent = "🎉 Goed geraden!";
+        }
+        else if (guess < secretNumber) {
+            result.textContent = "⬆️ Het getal is hoger!";
+        }
+        else {
+            result.textContent = "⬇️ Het getal is lager!";
+        }
+    }
+
+    function newNumber() {
+
+        secretNumber = Math.floor(Math.random() * 100) + 1;
+
+        document.getElementById("guessResult").textContent =
+            "Nieuw getal gekozen!";
+
+        document.getElementById("guessInput").value = "";
+    }
+
+
+    // =========================
+    // STEEN PAPIER SCHAAR
+    // =========================
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    function playRPS(player) {
+
+        const choices = ["steen", "papier", "schaar"];
+
+        const computer =
+            choices[Math.floor(Math.random() * choices.length)];
+
+        let result = "";
+
+        if (player === computer) {
+
+            result = "🤝 Gelijkspel!";
+
+        } else if (
+
+            (player === "steen" && computer === "schaar") ||
+            (player === "papier" && computer === "steen") ||
+            (player === "schaar" && computer === "papier")
+
+        ) {
+
+            result = "🎉 Jij wint!";
+            playerScore++;
+
+        } else {
+
+            result = "💻 De computer wint!";
+            computerScore++;
+        }
+
+        document.getElementById("rpsResult").textContent =
+            "Jij: " + player + " | Computer: " + computer +
+            " → " + result;
+
+        document.getElementById("playerScore").textContent =
+            playerScore;
+
+        document.getElementById("computerScore").textContent =
+            computerScore;
+    }
+
+
+    // =========================
+    // REACTIESPEL
+    // =========================
+
+    let reactionStarted = false;
+    let reactionStartTime = 0;
+    let reactionTimeout;
+
+    const reactionBox = document.getElementById("reactionBox");
+
+    function startReactionGame() {
+
+        reactionStarted = false;
+
+        reactionBox.style.background = "#555";
+        reactionBox.textContent = "Wacht op groen...";
+
+        const delay = Math.random() * 3000 + 1000;
+
+        reactionTimeout = setTimeout(function() {
+
+            reactionStarted = true;
+            reactionStartTime = Date.now();
+
+            reactionBox.style.background = "#22c55e";
+            reactionBox.textContent = "KLIK NU!";
+
+        }, delay);
+    }
+
+    function reactionClick() {
+
+        if (!reactionStarted) {
+
+            clearTimeout(reactionTimeout);
+
+            reactionBox.style.background = "#ef4444";
+            reactionBox.textContent = "Te vroeg!";
+
+            document.getElementById("reactionResult").textContent =
+                "❌ Je klikte te vroeg.";
+
+            setTimeout(startReactionGame, 1500);
+
+            return;
+        }
+
+        const reactionTime = Date.now() - reactionStartTime;
+
+        reactionStarted = false;
+
+        reactionBox.style.background = "#555";
+        reactionBox.textContent = "Klik om opnieuw te spelen";
+
+        document.getElementById("reactionResult").textContent =
+            "⚡ Reactietijd: " + reactionTime + " ms";
+
+    }
+
+    // Start het reactiespel wanneer de pagina geladen is
+    startReactionGame();
+
+</script>
+
+</body>
+</html>
 ```
