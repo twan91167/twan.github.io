@@ -1,0 +1,94 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniGame Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #d0d0d0;
+        }
+
+        .games {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding-bottom: 40px;
+        }
+
+        .game {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .game h2 {
+            margin-top: 0;
+        }
+
+        button {
+            border: none;
+            padding: 12px 18px;
+            margin: 6px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #4facfe;
+            color: white;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #00c6ff;
+        }
+
+        input {
+            padding: 12px;
+            width: 100px;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .score {
+            font-size: 22px;
+            margin: 15px;
+        }
+
+        #clickButton {
+            font-size: 25px;
+            width: 160px;
+            height: 80px;
+```
