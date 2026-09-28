@@ -95,6 +95,6 @@
       document.getElementById("result").textContent = things[randomIndex];
     }
   </script>
-
+  
 </body>
 </html>
