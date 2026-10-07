@@ -1,585 +1,404 @@
-```html
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniGame Hub</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #141e30, #243b55);
-            color: white;
-            min-height: 100vh;
-        }
-
-        header {
-            text-align: center;
-            padding: 35px 20px;
-        }
-
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #d0d0d0;
-        }
-
-        .games {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding-bottom: 40px;
-        }
-
-        .game {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .game h2 {
-            margin-top: 0;
-        }
-
-        button {
-            border: none;
-            padding: 12px 18px;
-            margin: 6px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            background: #4facfe;
-            color: white;
-            transition: 0.2s;
-        }
-
-        button:hover {
-            transform: scale(1.05);
-            background: #00c6ff;
-        }
-
-        /* Duidelijke START-knop */
-        .start-button {
-            background: #22c55e;
-            font-size: 22px;
-            font-weight: bold;
-            padding: 16px 45px;
-            margin-top: 15px;
-        }
-
-        .start-button:hover {
-            background: #16a34a;
-        }
-
-        .restart-button {
-            background: #f59e0b;
-        }
-
-        .restart-button:hover {
-            background: #d97706;
-        }
-
-        .game-content {
-            display: none;
-        }
-
-        input {
-            padding: 12px;
-            width: 100px;
-            border: none;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        .score {
-            font-size: 22px;
-            margin: 15px;
-        }
-
-        #clickButton {
-            font-size: 25px;
-            width: 160px;
-            height: 80px;
-        }
-
-        #reactionBox {
-            height: 150px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #555;
-            cursor: pointer;
-            margin-top: 15px;
-            font-size: 20px;
-        }
+Maak een website met Github Pages
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #aaa;
-        }
-    </style>
-</head>
+GitHub start - Account aanmaken	2
+Repository aanmaken	2
+Foute naam repository	3
+Werken met de editor	4
+Homepage	5
+Werken met bestanden: Webeditor openen	6
+Setting up the webeditor….	7
+Menu van de webeditor	7
+Een paar onderdelen van het menu:	7
+Explorer	7
+Source control	8
+Code toevoegen	8
+Bekijk je 1e pagina	9
+2e pagina: File (Bestand) en links toevoegen	9
+Links, oftewel Anchors	11
+Sla je code op en test je site	12
+Afbeelding toevoegen	12
+Menu maken	14
+Opmaak met block- en inline-elementen	16
+Opmaak met CSS	17
+Bestanden organiseren met mappen	20
+Samenwerken aan 1 site	20
+Downloaden site of via link delen	21
+Bestand verwijderen	22
+Dropdownmenu	22
 
-<body>
 
-<header>
-    <h1>🎮 MiniGame Hub</h1>
-    <p>Speel verschillende minigames in één website!</p>
-</header>
+GitHub start - Account aanmaken
+Open eventueel deze handleiding erbij. 
 
-<div class="games">
+Maak hier een account aan op GitHub.com .
+Kies een goede gebruikersnaam, want die verschijnt bovenin je URL.
 
-    <!-- =========================
-         KLIKSPEL
-         ========================= -->
+Onfatsoenlijke namen: Deze sites worden niet nagekeken.
 
-    <div class="game">
-        <h2>🖱️ Klik zo snel mogelijk</h2>
-        <p>Je hebt 10 seconden. Hoe vaak kun je klikken?</p>
+Verifieer je emailadres, daar ontvang je een code. Vul de code in op de site en ga verder met ‘For free’.
 
-        <button class="start-button" onclick="startClickGame()">
-            ▶ START
-        </button>
+Repository aanmaken
+Nu heb je een plek nodig om bestanden handig op te bergen. Een website bestaat uit behoorlijk wat bestanden. Elk document, elke afbeelding, elke video is een bestand. Elk bestand moet opgeslagen worden, dus bewaard worden.
 
-        <div id="clickGameContent" class="game-content">
+Om bestanden op te slaan, maak je een soort kast aan, bewaarplaats, of hoe je het wilt noemen. Op GitHub heet dat repository.
+Je gaat al je bestanden voor dezelfde website in 1 repository zetten, in 1 kast.
+Maar….gelukkig heeft een kast planken om de spullen te organiseren. Want alles door elkaar zetten is niet handig. Maar dat komt later.
 
-            <button id="clickButton">KLIK!</button>
+Eerst de repository maken:
 
-            <div class="score">
-                Score: <span id="clickScore">0</span>
-            </div>
 
-            <p>Tijd: <span id="clickTime">10</span>s</p>
 
-            <button class="restart-button" onclick="startClickGame()">
-                🔄 Opnieuw
-            </button>
 
-        </div>
-    </div>
 
+Maak een nieuwe repository aan, via de + rechtsboven, of via een andere knop
 
-    <!-- =========================
-         RAAD HET GETAL
-         ========================= -->
+Geef deze de naam: username.github.io , waarbij de username jouw gebruikersnaam is.
 
-    <div class="game">
-        <h2>🔢 Raad het getal</h2>
-        <p>Raad een getal tussen 1 en 100.</p>
 
-        <button class="start-button" onclick="startGuessGame()">
-            ▶ START
-        </button>
 
-        <div id="guessGameContent" class="game-content">
+Als de naam is goedgekeurd, vink je aan ‘Public’ en zorg je dat er een Readme file gemaakt wordt. Dit is good practice…..
 
-            <p>Ik heb een getal tussen 1 en 100 gekozen.</p>
+Klik dan op Create Repository
 
-            <input
-                type="number"
-                id="guessInput"
-                min="1"
-                max="100"
-            >
 
-            <button onclick="guessNumber()">
-                Raden
-            </button>
 
-            <p id="guessResult">Doe een gok!</p>
+Bekijk je profiel. Via dat dropdownmenu kun je je repositories vinden en openen. 
+Foute naam repository
 
-            <button class="restart-button" onclick="startGuessGame()">
-                🔄 Opnieuw
-            </button>
+De naam van de repository moet exact gelijk zijn aan je username, gevolgd door .github.io. Dus niet: .github.com, .github.nl, .github-io. Dat werkt allemaal niet. Je moet zorgvuldig zijn. Heb je je repository een verkeerde naam gegeven, open hem dan, ga naar settings en verander de naam van je repository en klik op Rename.
 
-        </div>
-    </div>
 
+Sla je inloggegevens op, of maak er een foto van, zodat je de volgende keer makkelijk en snel in kunt loggen.
+Werken met de editor
+Veel mensen denken: “Ha, ik ga lekker makkelijk doen, klik, klik klik en ik neem een kant & klare template, dat ziet er direct mooi uit.”
+Daar mag je later voor kiezen. Want een template, zoals bootstrap, of een template van GitHub zelf is inderdaad prima, maar….daar heb je wat kennis voor nodig van HTML en CSS. Dus die gaan we eerst opbouwen…..
 
-    <!-- =========================
-         STEEN PAPIER SCHAAR
-         ========================= -->
+Zorg dat je ingelogd bent
+Open je repository
+Homepage 
 
-    <div class="game">
-        <h2>✊ Steen Papier Schaar</h2>
-        <p>Versla de computer!</p>
+In je repository ga je naar Add file, en klik je op Create new file.
+De Homepage van een website heeft altijd dezelfde naam: index.html
+Tik deze naam in.
 
-        <button class="start-button" onclick="startRPSGame()">
-            ▶ START
-        </button>
 
-        <div id="rpsGameContent" class="game-content">
 
-            <p>Kies je zet:</p>
 
-            <button onclick="playRPS('steen')">
-                ✊ Steen
-            </button>
+Scroll naar beneden: Daar moet je de veranderingen opslaan. Dit heet in Github: Commit. Dit betekent ‘uitvoeren’. In dit geval heb je een nieuw file, oftewel nieuw bestand gemaakt. Tik evt. een beschrijving in en klik dan op Commit new file.
 
-            <button onclick="playRPS('papier')">
-                📄 Papier
-            </button>
 
-            <button onclick="playRPS('schaar')">
-                ✂️ Schaar
-            </button>
 
-            <p id="rpsResult">Maak een keuze!</p>
 
-            <p>
-                Jouw score:
-                <span id="playerScore">0</span>
-            </p>
 
-            <p>
-                Computer:
-                <span id="computerScore">0</span>
-            </p>
+In je repository is dit bestand nu verschenen.
 
-            <button class="restart-button" onclick="startRPSGame()">
-                🔄 Opnieuw
-            </button>
+Werken met bestanden: Webeditor openen
+Zorg dat je ingelogd bent. Klik op de naam van het bestand index.html en dit scherm opent:
+Klik op ‘Open in github.dev’ 
 
-        </div>
-    </div>
 
+Klik bij het potloodje en klik op ‘Open in github.dev’
 
-    <!-- =========================
-         REACTIESPEL
-         ========================= -->
 
-    <div class="game">
-        <h2>⚡ Reactiespel</h2>
-        <p>Klik zo snel mogelijk wanneer het groen wordt!</p>
 
-        <button class="start-button" onclick="startReactionGame()">
-            ▶ START
-        </button>
 
-        <div id="reactionGameContent" class="game-content">
 
-            <div id="reactionBox">
-                Wacht op groen...
-            </div>
 
-            <p id="reactionResult"></p>
 
-            <button class="restart-button" onclick="startReactionGame()">
-                🔄 Opnieuw
-            </button>
 
-        </div>
-    </div>
+Setting up the webeditor….
+….en je krijgt de volgende pagina. Links het menu en overzicht van de bestanden. Rechts de editor, waar je code intikt.
 
-</div>
 
-<footer>
-    🎮 MiniGame Hub — Veel speelplezier!
-</footer>
 
+Menu van de webeditor
+Scroll over de menu-onderdelen links
+Een paar onderdelen van het menu:
 
-<script>
 
-    // ==================================================
-    // KLIKSPEL
-    // ==================================================
 
-    let clickScore = 0;
-    let clickTime = 10;
-    let clickGameRunning = false;
-    let clickTimer;
+Explorer
+Geeft je een overzicht van je bestanden en de structuur waarin ze opgeslagen zijn
 
-    const clickButton =
-        document.getElementById("clickButton");
 
-    clickButton.addEventListener("click", function() {
 
-        if (!clickGameRunning) return;
 
-        clickScore++;
 
-        document.getElementById("clickScore").textContent =
-            clickScore;
-    });
 
-    function startClickGame() {
 
-        clearInterval(clickTimer);
+Source control
+Als je veranderingen aangebracht hebt, moeten die opgeslagen worden. Dit doe je steeds met ‘Commit changes’ en elke keer als je dat doet voeg je een Message toe, gevolgd door Ctrl-Enter. Als veranderingen niet opgeslagen zijn, verschijnt er een getalletje, dat het aantal bestanden wat veranderd is, aangeeft. Dit getalletje verdwijnt zodra je code opgeslagen is. Als je de webeditor wilt verlaten, zonder dat je de veranderingen opgeslagen hebt, krijg je een melding.
 
-        document.getElementById("clickGameContent").style.display =
-            "block";
+Code toevoegen
+Tik onderstaande code in in index.html, in de editor rechts
 
-        clickScore = 0;
-        clickTime = 10;
-        clickGameRunning = true;
+Je ziet een 1-tje verschijnen bij de Source control
 
-        document.getElementById("clickScore").textContent = 0;
-        document.getElementById("clickTime").textContent = 10;
+We bekijken de code:
+Begin- en eindtag van de html-elementen
+De head voor de meta-data met daarin de titel, die later op het tabblad komt
+De body voor de inhoud van de pagina
 
-        clickTimer = setInterval(function() {
+Sla de veranderingen op mbv. ‘Commit changes’: Dus een Message intikken, gevolgd door Ctrl-Enter en het 1-tje verdwijnt.
 
-            clickTime--;
+Bekijk je 1e pagina
 
-            document.getElementById("clickTime").textContent =
-                clickTime;
 
-            if (clickTime <= 0) {
+Open een nieuw tabblad en tik in: <username>.github.io en je 1e pagina moet te zien zijn. Dit kan soms wel even duren, wees geduldig…..!!
+Als je het voorbeeld overgetikt hebt, heb je wat tekst en een titel in het tabblad.
 
-                clearInterval(clickTimer);
+2e pagina: File (Bestand) en links toevoegen
+Hoe maak je een 2e pagina
+Hoe link de 2e pagina aan je Homepage
 
-                clickGameRunning = false;
+Makkelijke manier:
 
-                alert(
-                    "⏰ Tijd voorbij!\n\nJe score is: " +
-                    clickScore
-                );
-            }
+Klik op het meest linkse icoontje, dan wordt er een bestand (file) aangemaakt en geeft het nieuwe bestand een goede naam.
 
-        }, 1000);
-    }
+Andere manier:
 
 
-    // ==================================================
-    // RAAD HET GETAL
-    // ==================================================
+Klik linksboven in het menu op de 3 streepjes en klik via File → New File aan.
+Dit wordt een volgend .html-bestand. 
 
-    let secretNumber;
+NIET File → New Text File
 
-    function startGuessGame() {
 
-        document.getElementById("guessGameContent").style.display =
-            "block";
+Als je dit per ongeluk hebt gedaan, haal dat dan weg door op het kruisje te klikken
 
-        secretNumber =
-            Math.floor(Math.random() * 100) + 1;
 
-        document.getElementById("guessResult").textContent =
-            "Nieuw getal gekozen! Doe een gok.";
 
-        document.getElementById("guessInput").value = "";
-    }
+Tik in bij Select File Type: html, gevolgd door Enter
 
-    function guessNumber() {
 
-        const input =
-            document.getElementById("guessInput");
 
-        const guess = Number(input.value);
+Tik nu de naam van het nieuwe bestand in, in dit volgende venster: Er moet komen: binairstelsel.html, en klik op ok.
 
-        const result =
-            document.getElementById("guessResult");
+Links in je menu zie je dat het nieuwe bestand is toegevoegd
 
-        if (!guess || guess < 1 || guess > 100) {
 
-            result.textContent =
-                "⚠️ Voer een getal tussen 1 en 100 in!";
+Kopieer de code van index.html naar binairstelsel.html en verander de titel en de tekst enigszins. Verander ook het commentaar, want dat klopt nu niet meer! Het commentaar is de groene tekst tussen <!-- en →
 
-            return;
-        }
+Commentaar toevoegen waarin je uitlegt wat code doet, is enorm belangrijk: Je bent namelijk heel snel (straks) vergeten wat de code eigenlijk doet. Als je dan iets wilt toevoegen of veranderen of weghalen, dan moet je eerst weer kijken hoe het ook alweer zat. Help jezelf en haal een beter cijfer met goed commentaar!
 
-        if (guess === secretNumber) {
 
-            result.textContent =
-                "🎉 Goed geraden!";
+Nu heb je 2 bestanden. Elk bestand is een pagina van je website, maar ze zijn nog niet aan elkaar gelinkt. Je kunt dus nog niet vanuit de ene pagina de andere openen, door op een link te klikken. Dat is de volgende stap. 
 
-        } else if (guess < secretNumber) {
+Links, oftewel Anchors
+Een link in html heet Anchor
+Lees deze pagina over links
 
-            result.textContent =
-                "⬆️ Het getal is hoger!";
+De vorm van een link is: <a href="url">link text</a>
+Een link heeft een begin- en een eindtag
+In de begintag staat waarnaar gelinkt wordt. Dit kan een website zijn, een bestand van je website, een afbeelding.
+Tussen de begin- en eindtag komt wat tekst. Dit wordt de tekst, waar op geklikt kan worden.
 
-        } else {
+Maak in het bestand index.html een link naar het bestand binairstelsel.html
 
-            result.textContent =
-                "⬇️ Het getal is lager!";
-        }
-    }
 
+Én maak in het bestand binairstelsel.html een link terug naar je HomePage:
 
-    // ==================================================
-    // STEEN PAPIER SCHAAR
-    // ==================================================
+Pas het commentaar in dit bestand aan, zodat het klopt
+Sla je code op en test je site
+Klik op Source Control, voeg een Message toe, gevolgd door Ctrl-Enter en open in een apart tabblad je site met <username>.github.io.
+Even geduld als de veranderingen niet onmiddellijk te zien zijn….
 
-    let playerScore = 0;
-    let computerScore = 0;
+Het ziet er nog niet uit……maar als het goed is, kun je heen en weer springen van de ene naar de andere pagina…..
 
-    function startRPSGame() {
+Afbeelding toevoegen
+Open deze pagina en test 1 van de gegeven voorbeelden.
+Zoek een afbeelding op en download die, geef de afbeelding een goede naam. Let op de extensie. Sommige afbeeldingen eindigen op .jpg, of .png. Die extensie kun je niet zomaar veranderen….
 
-        document.getElementById("rpsGameContent").style.display =
-            "block";
+Bekijk in het voorbeeld hoe je een afbeelding toevoegt. Een afbeelding heeft een bestandsnaam, die als source gebruikt wordt.
 
-        playerScore = 0;
-        computerScore = 0;
+<img src="img_girl.jpg" alt="Girl in a jacket">
 
-        document.getElementById("playerScore").textContent = 0;
-        document.getElementById("computerScore").textContent = 0;
+Uitleg onderdelen:
+img = image
+src = source: Dus waar de afbeelding gevonden moet worden
+alt = alternatieve tekst: Die krijg je te zien als de afbeelding niet gevonden wordt
 
-        document.getElementById("rpsResult").textContent =
-            "Maak een keuze!";
-    }
+Maar….om een afbeelding daadwerkelijk te kunnen laten zien, moet hij wel gekopieerd worden naar je repository.
 
-    function playRPS(player) {
+Ga via  naar Go to Repository. Deze opent in een apart tabblad. Daar klik je op Add file en vervolgens op Upload file.
 
-        const choices = [
-            "steen",
-            "papier",
-            "schaar"
-        ];
+Je afbeelding staat waarschijnlijk in je downloads-map. Zoek hem daar op en klik hem aan. Voer Commit changes uit, met een Message + Ctrl-Enter
 
-        const computer =
-            choices[Math.floor(
-                Math.random() * choices.length
-            )];
 
-        let result = "";
+Ga terug naar de editor, controleer of je afbeelding bij de bestanden staat.
+Zoniet, ververs dan de editor.
 
-        if (player === computer) {
+Voeg de link toe in de code van index.html en Commit de Change. 
 
-            result = "🤝 Gelijkspel!";
 
-        } else if (
+Let op:
+De naam van je afbeelding moet exact overeenkomen met de naam in de link. In het voorbeeld is dat: construction.jpg.
 
-            (player === "steen" && computer === "schaar") ||
-            (player === "papier" && computer === "steen") ||
-            (player === "schaar" && computer === "papier")
+Voeg op dezelfde manier ook een afbeelding toe aan je 2e pagina
 
-        ) {
+Je wilt misschien je afbeelding op een bepaalde plek op je pagina hebben. Daarvoor ga je CSS gebruiken.
+Goede uitleg is hier te vinden
+Menu maken
+Een menu is niets anders dan een lijst van links, oftewel anchors. In html wordt zo’n lijst een ‘unordered list’, oftewel ul, genoemd, of een ‘ordered list’, een ol, een geordende lijst.
 
-            result = "🎉 Jij wint!";
-            playerScore++;
+Bekijk deze en deze pagina om een idee te krijgen hoe zo’n lijst in elkaar zit. 
+ul = unordered list: Het geheel
+ol = ordered list: Een geordend geheel
+li = list item: Ieder element van de lijst is een list item
 
-        } else {
+De list in html geeft alleen de structuur aan. Hoe het menu eruit komt te zien, de opmaak, ga je later in je CSS-bestand bepalen.
+We maken een lijst van webpagina’s. Omdat het menu op elke pagina moet komen, zetten we de html-code op elke pagina.
 
-            result = "💻 De computer wint!";
-            computerScore++;
-        }
+Je hebt de bestanden index.html en binairestelsel.html. Maak een 3e .html-bestand, kleurmodellen.html
+Voeg in elk van deze bestanden een lijst van links toe:
 
-        document.getElementById("rpsResult").textContent =
-            "Jij: " + player +
-            " | Computer: " + computer +
-            " → " + result;
 
-        document.getElementById("playerScore").textContent =
-            playerScore;
 
-        document.getElementById("computerScore").textContent =
-            computerScore;
-    }
+Binairestelsel.html
 
 
-    // ==================================================
-    // REACTIESPEL
-    // ==================================================
 
-    let reactionStarted = false;
-    let reactionStartTime = 0;
-    let reactionTimeout;
+Kleurmodellen.html
 
-    const reactionBox =
-        document.getElementById("reactionBox");
 
-    function startReactionGame() {
 
-        clearTimeout(reactionTimeout);
+Je ziet dat in elk bestand dezelfde lijst staat. Bekijk de code en kijk of je de elementen nog kent, ul, li, a, href, <>, </>.
+Sla de veranderingen op met een Message en Ctrl-Enter, wacht even en kijk of je site werkt op <username>.github.io
 
-        document.getElementById(
-            "reactionGameContent"
-        ).style.display = "block";
+De pagina’s zijn nu aan elkaar gelinkt in html en je hebt een menu gemaakt met de <ul>. Nu ga je de <ul> stylen. Dat is opmaak en dat doe je dus in css.
 
-        reactionStarted = false;
+Opmaak met block- en inline-elementen
+Om je website pagina’s te structureren worden vaak block- of inline-elementen gebruikt
 
-        reactionBox.style.background = "#555";
+Bekijk deze pagina om te kijken wat dit zijn.
 
-        reactionBox.textContent =
-            "Wacht op groen...";
+Veelgebruikte block-elementen zijn:
+<p>: paragrafen: Hiermee bepaal je een paragraaf
+<div>: divisions: Hiermee bepaal je een bepaald deel van je pagina. Het wordt vaak gebruikt als een soort container voor andere elementen. Een block-element kan een inline-element bevatten.
 
-        document.getElementById(
-            "reactionResult"
-        ).textContent = "";
+Block-elementen beginnen links op een nieuwe regel en nemen de hele breedte van het venster in beslag.
 
-        const delay =
-            Math.random() * 3000 + 1000;
+Inline-elementen nemen zoveel ruimte in als ze nodig hebben, en beginnen niet op een nieuwe regel.
+Deze elementen kunnen bv. zijn:
+<button>: knop
+<a>: link
+<img>: afbeelding
 
-        reactionTimeout = setTimeout(function() {
+Let op: Een inline-element kan géén block-element bevatten
 
-            reactionStarted = true;
+Bekijk een aantal voorbeelden, bedenk wat je zou kunnen gebruiken en experimenteer ermee in de w3schools editor.
 
-            reactionStartTime = Date.now();
 
-            reactionBox.style.background =
-                "#22c55e";
+Opmaak met CSS
+Op w3schools staat een goede tutorial om vertrouwd te raken met css en dit te gaan gebruiken:
+Introductie
+Voorbeelden bekijken
+Syntax
 
-            reactionBox.textContent =
-                "KLIK NU!";
+Als je voorbeelden bekijkt in de Tryit Editor, verander dan wat code en kijk wat het doet.
+Verander bv op deze pagina text-align van center naar left of right en color van red naar blue, waarna je op run klikt.
 
-        }, delay);
-    }
+Merk op dat in de w3schools editor de css-code in de html-code staat. 
 
-    function reactionClick() {
 
-        if (!reactionStarted) {
 
-            clearTimeout(reactionTimeout);
 
-            reactionBox.style.background =
-                "#ef4444";
 
-            reactionBox.textContent =
-                "Te vroeg!";
 
-            document.getElementById(
-                "reactionResult"
-            ).textContent =
-                "❌ Je klikte te vroeg.";
 
-            setTimeout(startReactionGame, 1500);
+Bekijk deze pagina
 
-            return;
-        }
+Op deze pagina zie je een verticaal en horizontaal menu. Als je naar beneden scrollt, zie je de .css-code staan. In het voorbeeld wordt deze code in de .html-bestanden gezet. Dat doen wij niet. Wij zetten de .css-code in 1 .css-bestand.
 
-        const reactionTime =
-            Date.now() - reactionStartTime;
+Waarom .css code niet in elk .html-bestand, maar in 1 .css-bestand?
+Je hoeft de code maar 1 keer in te tikken
+Bij een verandering hoef je maar 1 bestand te veranderen
+Elke pagina krijgt dezelfde opmaak, dat geeft een betere website (meestal)
 
-        reactionStarted = false;
+Hoe doe je dat?
+Maak een apart .css-bestand en geef het een handige naam, bv. opmaak.css, of layout.css
+Haal bolletjes, marge en padding weg. Hiermee maak de de lijst zelf op.
 
-        reactionBox.style.background =
-            "#555";
 
-        reactionBox.textContent =
-            "Klik op Opnieuw om nog een keer te spelen";
 
-        document.getElementById(
-            "reactionResult"
-        ).textContent =
-            "⚡ Reactietijd: " +
-            reactionTime +
-            " ms";
-    }
+Bekijk in het voorbeeld van w3schools wat je een mooi menu vindt. Kopieer de code naar je .css-bestand. Let op: Kopieer alleen de .css-code, in de Try-it editor staat de css-code bij de html-code.
 
-    reactionBox.addEventListener(
-        "click",
-        reactionClick
-    );
+De code in een .css-bestand wordt niet zomaar uitgevoerd. Je moet dat aangeven. Je moet het linken aan je .html-bestanden. In elk .html-bestand moet een link komen naar het .css-bestand. Doe je dat niet, dan kan de browser, die de html uitvoert, het opmaakbestand niet vinden en heb je geen opmaak. Voeg in elk .html-bestand, in het element <head> de link naar het .css-bestand toe, met
+<link rel="stylesheet" type="text/css" href="opmaak.css">
+Zorg dat de naam van het .css-bestand in de link exact overeenkomt met de naam van je bestand
 
-</script>
 
-</body>
-</html>
-```
+
+
+Bekijk de code in het .css-bestand. Waar kun je kleuren aanpassen? waar kun je de breedte en hoogte van links aanpassen? Ga met de code experimenteren. Geef de links een andere kleur, bv.
+
+
+
+Zoek de volgende dingen op:
+Wat is het verschil tussen color en background-color
+Wat betekent: display: block
+Wat betekent: li a: hover?
+Bij padding staat: 8px 16px
+Wat is de padding
+wat betekent px
+Waarom staan hier 2 waardes
+
+Bestanden organiseren met mappen
+Als je veel bestanden hebt, is het handig ze overzichtelijk te organiseren.
+
+Let op: Laat het bestand index.html in de root, de hoofdmap, staan, anders kan je site niet makkelijk gevonden worden
+
+
+
+Maak met dit icoontje in de webeditor mappen. Voor je .html-bestanden, je afbeelding, je video’s en je .css-bestanden.
+Nu moet je wel zorgen dat de browser ze kan vinden. Je moet het pad naar de mappen in de links aangeven.
+
+Leer hier hoe dat moet.
+Samenwerken aan 1 site
+In Github Pages kun je goed samenwerken aan dezelfde code. 1 persoon blijft eigenaar en kan andere personen uitnodigen. Zo kun je samen aan dezelfde code werken
+Ga in je repository naar Settings en dan zie je links in het menu staan: Collaborators.
+Klik daarop
+Nodig via de Add people-knop iemand uit via zijn/haar e-mail of username. Dit wordt een collaborator
+De collaborator krijgt dan een email met een link, waarmee hij in dezelfde repository komt
+
+
+
+
+
+
+Downloaden site of via link delen
+
+
+
+Delen:
+Je kunt de link, die je in dit venster ziet, kopiëren en delen. En in classroom zetten.
+
+Downloaden:
+Om alle code en structuur van je website lokaal op te slaan, te mailen etc. kun je hier een .zip-bestand van maken.
+
+Bestand verwijderen
+Je wilt weleens een bestand, bv. een afbeelding weer kunnen verwijderen.
+Ga naar je Repository en klik op het bestand dat je weg wilt halen.
+Een nieuw venster opent en rechts zie je een prullenbakje. Daar klik je op.
+
+
+
+Scroll naar beneden en klik op Commit Changes
+
+Dropdownmenu
+Een handig voorbeeld van een dropdownmenu kun je hier vinden. 
+
+Neem even de tijd om de code te bekijken. Wat staat er eigenlijk?
+Het menu bestaat uit 3 niveaus: 3 geneste ul’s, unordered lists. Bekijk deze code goed, zodat je weet hoe het in elkaar zit. Zomaar kopiëren en plakken en dan roepen: “Mevrouw, het werkt niet!”, tsja…..
+
+Bovenin staat de css code, bekijk deze ook goed. Bij welk element hoort welke opmaak?
+
+Op w3schools kun je ook aardige voorbeelden vinden, bv hier. Hier wordt gewerkt met <div>-elementen. Ook hier zie je geneste div-elementen.
+Je mag zelf kiezen wat op jouw site komt, let erop dat je voldoende commentaar aan je code toevoegt, in het Nederlands.
+
+Positioneren
+Je wilt controle over waar de elementen van je webpagina neergezet worden. Dat doe je met CSS. Een pagina met aardige uitleg vind je hier.
+Er worden een paar voorbeelden gegeven en je leert hoe je met de eigenschap ‘position’, icm ‘top' en ‘left’, met een element kunt schuiven.
+Ook kun je experimenteren met bv. float. 
+
+
