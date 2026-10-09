@@ -1,19 +1,2459 @@
-```html
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <title>Mijn eerste website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welkom op de website van Twan. Ontdek kleurmodellen, het binaire stelsel, compressie en kunstmatige intelligentie.">
+<meta name="theme-color" content="#0b1020">
+
+<title>Welkom op mijn website | Twan</title>
+
+<style>
+/* =========================================
+   1. BASISINSTELLINGEN
+========================================= */
+
+:root {
+  --background: #0b1020;
+  --surface: #11182b;
+  --card: #151e34;
+  --card-hover: #1c2944;
+  --text: #f4f6ff;
+  --muted: #aab6d1;
+  --primary: #8b70ff;
+  --primary-light: #c4b5fd;
+  --border: #2b3855;
+  --shadow: 0 15px 45px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-theme {
+  --background: #f3f5fc;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-hover: #eceeff;
+  --text: #182039;
+  --muted: #59647c;
+  --primary: #6547d9;
+  --primary-light: #6c50d9;
+  --border: #d8deed;
+  --shadow: 0 15px 45px rgba(30, 40, 80, 0.10);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 50px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.gradient-text {
+  background: linear-gradient(110deg, #a78bfa, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-light);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 7px 15px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   2. VOORTGANGSBALK
+========================================= */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8b70ff, #67e8f9);
+  z-index: 2000;
+}
+
+/* =========================================
+   3. NAVIGATIE
+========================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #7c5cff, #3b82f6);
+  color: white;
+  font-size: 1.4rem;
+  box-shadow: 0 5px 22px #7c5cff44;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links > li > a,
+.dropdown-toggle {
+  text-decoration: none;
+  font-size: 0.94rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav-links > li > a:hover,
+.dropdown-toggle:hover {
+  color: var(--primary-light);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.25s;
+}
+
+.dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -18px;
+  width: 250px;
+  padding: 9px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  animation: menuIn 0.2s ease;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: var(--card-hover);
+  transform: translateX(3px);
+}
+
+.menu-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  background: var(--card);
+  border-radius: 10px;
+  font-size: 1.15rem;
+}
+
+.menu-label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.92rem;
+}
+
+.menu-description {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.icon-button:hover {
+  transform: translateY(-2px);
+  background: var(--card-hover);
+}
+
+.menu-button {
+  display: none;
+}
+
+/* =========================================
+   4. KNOPPEN
+========================================= */
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s,
+              background 0.25s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #8b70ff, #6847e8);
+  color: white;
+  box-shadow: 0 8px 25px #7c5cff33;
+}
+
+.button-primary:hover {
+  box-shadow: 0 12px 35px #7c5cff55;
+}
+
+.button-secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.button-secondary:hover {
+  background: var(--card-hover);
+}
+
+/* =========================================
+   5. HERO / WELKOM
+========================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 660px;
+  display: grid;
+  align-items: center;
+  padding: 95px 0 110px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: #7547ff20;
+  filter: blur(85px);
+  top: -280px;
+  right: -100px;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: #0891b220;
+  filter: blur(90px);
+  bottom: -260px;
+  left: -100px;
+  z-index: -1;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.hero-copy {
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5.3rem);
+  letter-spacing: -3px;
+  line-height: 1.08;
+  margin: 24px 0;
+}
+
+.hero-copy > p {
+  max-width: 590px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-note {
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+  animation: floatIn 1s ease both;
+}
+
+.visual-orbit {
+  position: absolute;
+  width: min(350px, 85vw);
+  aspect-ratio: 1;
+  border: 1px solid #8b70ff44;
+  border-radius: 50%;
+  animation: rotate 28s linear infinite;
+}
+
+.visual-orbit::before,
+.visual-orbit::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 25px #a78bfa;
+}
+
+.visual-orbit::before {
+  top: 40px;
+  left: 55px;
+}
+
+.visual-orbit::after {
+  right: 25px;
+  bottom: 70px;
+  background: #67e8f9;
+  box-shadow: 0 0 25px #67e8f9;
+}
+
+.visual-card {
+  position: relative;
+  z-index: 1;
+  width: min(320px, 82%);
+  padding: 28px;
+  border: 1px solid #8b70ff55;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #202b48dd, #11182bdd);
+  box-shadow: 0 30px 100px #0004;
+  backdrop-filter: blur(12px);
+  transform: rotate(-3deg);
+}
+
+.visual-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.visual-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.visual-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #8b70ff;
+}
+
+.visual-dots span:nth-child(2) {
+  background: #67e8f9;
+}
+
+.visual-dots span:nth-child(3) {
+  background: #6ee7b7;
+}
+
+.visual-code {
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 2.1;
+  color: #c4b5fd;
+}
+
+.visual-code .cyan {
+  color: #67e8f9;
+}
+
+.visual-code .green {
+  color: #6ee7b7;
+}
+
+.visual-code .muted {
+  color: #8592b1;
+}
+
+.visual-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ffffff18;
+  margin-top: 20px;
+  padding-top: 17px;
+  color: #bac5df;
+  font-size: 0.8rem;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6ee7b7;
+  margin-right: 6px;
+}
+
+/* =========================================
+   6. STATISTIEKEN
+========================================= */
+
+.stats {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-item {
+  padding: 30px 15px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-light);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* =========================================
+   7. ONDERWERPEN
+========================================= */
+
+.topics-section {
+  background: var(--background);
+}
+
+.search-box {
+  display: flex;
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto 35px;
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  align-items: center;
+}
+
+.search-box span {
+  font-size: 1.2rem;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  outline: none;
+  padding: 8px 0;
+}
+
+.search-box input::placeholder {
+  color: var(--muted);
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.topic-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 285px;
+  transition: transform 0.3s, border-color 0.3s,
+              background 0.3s;
+}
+
+.topic-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  top: -100px;
+  right: -70px;
+  background: var(--topic-glow, #8b70ff20);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.topic-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--topic-color, var(--primary));
+  background: var(--card-hover);
+}
+
+.topic-card[hidden] {
+  display: none;
+}
+
+.topic-card.purple {
+  --topic-color: #a78bfa;
+  --topic-glow: #8b70ff25;
+}
+
+.topic-card.cyan {
+  --topic-color: #67e8f9;
+  --topic-glow: #06b6d425;
+}
+
+.topic-card.orange {
+  --topic-color: #fbbf24;
+  --topic-glow: #f59e0b25;
+}
+
+.topic-card.green {
+  --topic-color: #6ee7b7;
+  --topic-glow: #10b98125;
+}
+
+.topic-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.topic-icon {
+  width: 57px;
+  height: 57px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 1.8rem;
+}
+
+.topic-number {
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.topic-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+}
+
+.topic-card p {
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.topic-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--topic-color, var(--primary-light));
+}
+
+.topic-link span {
+  transition: transform 0.2s;
+}
+
+.topic-link:hover span {
+  transform: translateX(5px);
+}
+
+.no-results {
+  display: none;
+  color: var(--muted);
+  text-align: center;
+  padding: 30px;
+}
+
+/* =========================================
+   8. OVER MIJ
+========================================= */
+
+.about-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.profile-card {
+  padding: 35px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.profile-avatar {
+  width: 125px;
+  height: 125px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  border-radius: 35px;
+  font-size: 4rem;
+  background: linear-gradient(135deg, #8b70ff44, #67e8f944);
+  border: 1px solid var(--border);
+  transform: rotate(-3deg);
+}
+
+.profile-card h3 {
+  font-size: 1.65rem;
+}
+
+.profile-role {
+  color: var(--primary-light);
+  margin: 5px 0 20px;
+}
+
+.profile-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-badge {
+  padding: 6px 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 0.8rem;
+}
+
+.about-copy h2 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.2;
+  margin: 18px 0;
+}
+
+.about-copy > p {
+  color: var(--muted);
+  margin-bottom: 17px;
+}
+
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.fact-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 15px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.fact-icon {
+  font-size: 1.7rem;
+}
+
+.fact-card strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.fact-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* =========================================
+   9. HOBBY
+========================================= */
+
+.hobby-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hobby-panel {
+  position: relative;
+  padding: 50px;
+  border: 1px solid #8b70ff55;
+  border-radius: 25px;
+  background:
+    radial-gradient(ellipse at right, #7547ff28, transparent 55%),
+    var(--surface);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 30px;
+}
+
+.hobby-panel h3 {
+  font-size: 2rem;
+  margin: 16px 0 12px;
+}
+
+.hobby-panel p {
+  color: var(--muted);
+  max-width: 600px;
+}
+
+.game-emoji {
+  font-size: 6rem;
+  filter: drop-shadow(0 10px 25px #8b70ff44);
+}
+
+/* =========================================
+   10. WEETJES
+========================================= */
+
+.facts-section {
+  background: var(--surface);
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.fun-fact {
+  padding: 25px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: transform 0.25s;
+}
+
+.fun-fact:hover {
+  transform: translateY(-5px);
+}
+
+.fun-fact .fact-emoji {
+  font-size: 2rem;
+}
+
+.fun-fact h3 {
+  font-size: 1.1rem;
+  margin: 12px 0 8px;
+}
+
+.fun-fact p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* =========================================
+   11. INTERACTIEVE QUIZ
+========================================= */
+
+.quiz-section {
+  background: var(--background);
+}
+
+.quiz-box {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 35px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.quiz-counter {
+  font-size: 0.85rem;
+  color: var(--primary-light);
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.quiz-progress {
+  height: 7px;
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.quiz-progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #8b70ff, #67e8f9);
+  transition: width 0.3s;
+}
+
+.quiz-question {
+  font-size: 1.35rem;
+  margin-bottom: 22px;
+}
+
+.quiz-answers {
+  display: grid;
+  gap: 12px;
+}
+
+.quiz-answer {
+  width: 100%;
+  text-align: left;
+  padding: 15px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.quiz-answer:hover:not(:disabled) {
+  background: var(--card-hover);
+  border-color: var(--primary);
+}
+
+.quiz-answer.correct {
+  border-color: #34d399;
+  background: #10b98118;
+}
+
+.quiz-answer.wrong {
+  border-color: #fb7185;
+  background: #f43f5e18;
+}
+
+.quiz-answer:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.quiz-feedback {
+  min-height: 35px;
+  padding: 15px 0;
+  color: var(--muted);
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.quiz-score {
+  color: var(--primary-light);
+  font-weight: bold;
+}
+
+/* =========================================
+   12. EINDE / CALL TO ACTION
+========================================= */
+
+.cta {
+  padding: 30px 0 100px;
+}
+
+.cta-panel {
+  text-align: center;
+  padding: 60px 25px;
+  border: 1px solid #8b70ff55;
+  border-radius: 25px;
+  background:
+    radial-gradient(ellipse at top, #8b70ff24, transparent 70%),
+    var(--surface);
+}
+
+.cta-panel h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 20px 0 12px;
+}
+
+.cta-panel p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+/* =========================================
+   13. FOOTER
+========================================= */
+
+footer {
+  padding: 45px 0 25px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.footer-brand {
+  max-width: 370px;
+}
+
+.footer-brand p {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.footer-links h4 {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  display: block;
+  text-decoration: none;
+  color: var(--muted);
+  margin: 7px 0;
+}
+
+.footer-links a:hover {
+  color: var(--primary-light);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* =========================================
+   14. TERUG NAAR BOVEN
+========================================= */
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: 0.25s;
+  z-index: 900;
+  box-shadow: var(--shadow);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================================
+   15. ANIMATIES
+========================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   16. RESPONSIVE ONTWERP
+========================================= */
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero {
+    padding-top: 75px;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 340px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .profile-card {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-copy {
+    text-align: center;
+  }
+
+  .about-facts {
+    text-align: left;
+  }
+
+  .fact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .navbar {
+    min-height: 72px;
+    flex-wrap: wrap;
+    padding: 12px 0;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .menu-button {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 0 15px;
+  }
+
+  .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .nav-links > li > a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    margin: 5px 0 10px;
+    box-shadow: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 70px 0;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .stat-item:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-card {
+    min-height: 250px;
+    padding: 25px;
+  }
+
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby-panel {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .game-emoji {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .fact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-box {
+    padding: 22px;
+  }
+
+  .quiz-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-main {
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Welkom op mijn website!</h1>
+<div class="progress-bar" id="progress-bar"></div>
 
-    <p>Dit is mijn eerste website met HTML.</p>
+<!-- =======================================
+     NAVIGATIE
+======================================= -->
 
-    <p>Ik ben vandaag begonnen met websites maken.</p>
+<header>
+  <div class="container navbar">
+
+    <a class="logo" href="#home" aria-label="Naar de homepage">
+      <span class="logo-icon">T</span>
+      <span>Twan's Webwereld</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+
+      <li class="dropdown" id="dropdown">
+        <button
+          class="dropdown-toggle"
+          id="dropdown-toggle"
+          aria-expanded="false"
+          aria-controls="dropdown-menu">
+          Onderwerpen
+          <span class="arrow">▾</span>
+        </button>
+
+        <div class="dropdown-menu" id="dropdown-menu">
+
+          <a href="kleurmodellen.html">
+            <span class="menu-icon">🎨</span>
+            <span>
+              <span class="menu-label">Kleurmodellen</span>
+              <span class="menu-description">RGB en CMYK</span>
+            </span>
+          </a>
+
+          <a href="binair-stelsel.html">
+            <span class="menu-icon">🔢</span>
+            <span>
+              <span class="menu-label">Binair stelsel</span>
+              <span class="menu-description">Nullen en enen</span>
+            </span>
+          </a>
+
+          <a href="compressie.html">
+            <span class="menu-icon">📦</span>
+            <span>
+              <span class="menu-label">Compressie</span>
+              <span class="menu-description">Kleinere bestanden</span>
+            </span>
+          </a>
+
+          <a href="ai.html">
+            <span class="menu-icon">🤖</span>
+            <span>
+              <span class="menu-label">AI</span>
+              <span class="menu-description">Slimme computers</span>
+            </span>
+          </a>
+
+        </div>
+      </li>
+
+      <li><a href="#over-mij">Over mij</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button
+        class="icon-button"
+        id="theme-toggle"
+        aria-label="Verander kleurthema"
+        title="Verander kleurthema">
+        ☀️
+      </button>
+
+      <button
+        class="icon-button menu-button"
+        id="mobile-toggle"
+        aria-label="Open navigatiemenu"
+        aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<!-- =======================================
+     HERO
+======================================= -->
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-copy">
+
+      <span class="eyebrow">
+        <span class="status-dot"></span>
+        Mijn persoonlijke website
+      </span>
+
+      <h1>
+        Welkom op<br>
+        <span class="gradient-text">mijn website!</span>
+      </h1>
+
+      <p>
+        Hoi, ik ben Twan! Op deze website ontdek je allerlei
+        interessante dingen over de digitale wereld.
+        Van kleuren en binaire getallen tot compressie
+        en kunstmatige intelligentie. Er valt genoeg te leren!
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#onderwerpen" class="button button-primary">
+          Ontdek de onderwerpen <span>→</span>
+        </a>
+
+        <a href="#over-mij" class="button button-secondary">
+          Meer over mij
+        </a>
+      </div>
+
+      <p class="hero-note">
+        💻 Technologie · 🎮 Gamen · 🧠 Nieuwe dingen leren
+      </p>
+
+    </div>
+
+    <div class="hero-visual" aria-label="Decoratieve programmeerillustratie">
+      <div class="visual-orbit"></div>
+
+      <div class="visual-card">
+        <div class="visual-card-top">
+          <strong>mijn_website.html</strong>
+          <div class="visual-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="visual-code">
+          <div><span class="muted">&lt;html&gt;</span></div>
+          <div>&nbsp;&nbsp;<span class="cyan">&lt;h1&gt;</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;Welkom!</div>
+          <div>&nbsp;&nbsp;<span class="cyan">&lt;/h1&gt;</span></div>
+          <div>&nbsp;&nbsp;<span class="green">&lt;p&gt;</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;Ik ben Twan.</div>
+          <div>&nbsp;&nbsp;<span class="green">&lt;/p&gt;</span></div>
+          <div><span class="muted">&lt;/html&gt;</span></div>
+        </div>
+
+        <div class="visual-stat">
+          <span><span class="status-dot"></span>Website online in wording</span>
+          <span>HTML + CSS</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =======================================
+     STATISTIEKEN
+======================================= -->
+
+<section class="stats">
+  <div class="container stats-grid">
+
+    <div class="stat-item">
+      <span class="stat-number">04</span>
+      <span class="stat-label">Onderwerpen</span>
+    </div>
+
+    <div class="stat-item">
+      <span class="stat-number">15</span>
+      <span class="stat-label">Jaar oud</span>
+    </div>
+
+    <div class="stat-item">
+      <span class="stat-number">04</span>
+      <span class="stat-label">Huisdieren</span>
+    </div>
+
+    <div class="stat-item">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">Dingen om te leren</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- =======================================
+     ONDERWERPEN
+======================================= -->
+
+<section class="section topics-section" id="onderwerpen">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Ontdek en leer</span>
+      <h2>Duik in de wereld van <span class="gradient-text">ICT</span></h2>
+      <p>
+        Kies een onderwerp om meer te ontdekken.
+        Gebruik de zoekbalk om snel te vinden wat je zoekt.
+      </p>
+    </div>
+
+    <label class="search-box reveal">
+      <span>🔎</span>
+      <input
+        type="search"
+        id="topic-search"
+        placeholder="Zoek een onderwerp..."
+        aria-label="Zoek een onderwerp">
+    </label>
+
+    <div class="topic-grid" id="topic-grid">
+
+      <article class="topic-card purple reveal" data-search="kleurmodellen kleuren rgb cmyk scherm">
+        <div class="topic-top">
+          <div class="topic-icon">🎨</div>
+          <span class="topic-number">01 / 04</span>
+        </div>
+
+        <h3>Kleurmodellen</h3>
+
+        <p>
+          Hoe worden kleuren gemaakt op een computerscherm?
+          Ontdek RGB, CMYK en het verschil tussen kleuren
+          op een scherm en kleuren op papier.
+        </p>
+
+        <a class="topic-link" href="kleurmodellen.html">
+          Ontdek kleurmodellen <span>→</span>
+        </a>
+      </article>
+
+      <article class="topic-card cyan reveal" data-search="binair stelsel getallen nullen enen bits bytes">
+        <div class="topic-top">
+          <div class="topic-icon">🔢</div>
+          <span class="topic-number">02 / 04</span>
+        </div>
+
+        <h3>Binair stelsel</h3>
+
+        <p>
+          Computers gebruiken nullen en enen om gegevens
+          op te slaan. Leer hoe het binaire stelsel werkt
+          en hoe getallen digitaal worden weergegeven.
+        </p>
+
+        <a class="topic-link" href="binair-stelsel.html">
+          Ontdek het binaire stelsel <span>→</span>
+        </a>
+      </article>
+
+      <article class="topic-card orange reveal" data-search="compressie bestanden kleiner zip opslag png mp3">
+        <div class="topic-top">
+          <div class="topic-icon">📦</div>
+          <span class="topic-number">03 / 04</span>
+        </div>
+
+        <h3>Compressie</h3>
+
+        <p>
+          Hoe passen grote bestanden op een kleine harde
+          schijf? Ontdek hoe compressie werkt en wat het
+          verschil is tussen verliesvrije en verliesgevende compressie.
+        </p>
+
+        <a class="topic-link" href="compressie.html">
+          Ontdek compressie <span>→</span>
+        </a>
+      </article>
+
+      <article class="topic-card green reveal" data-search="ai kunstmatige intelligentie machine learning robots chatbots">
+        <div class="topic-top">
+          <div class="topic-icon">🤖</div>
+          <span class="topic-number">04 / 04</span>
+        </div>
+
+        <h3>Kunstmatige intelligentie</h3>
+
+        <p>
+          AI wordt steeds belangrijker. Leer wat kunstmatige
+          intelligentie is, hoe computers patronen herkennen
+          en waar je AI in het dagelijks leven tegenkomt.
+        </p>
+
+        <a class="topic-link" href="ai.html">
+          Ontdek AI <span>→</span>
+        </a>
+      </article>
+
+    </div>
+
+    <p class="no-results" id="no-results">
+      Geen onderwerpen gevonden. Probeer een andere zoekterm.
+    </p>
+
+  </div>
+</section>
+
+<!-- =======================================
+     OVER MIJ
+======================================= -->
+
+<section class="section about-section" id="over-mij">
+
+  <div class="container about-grid">
+
+    <div class="profile-card reveal">
+      <div class="profile-avatar" aria-hidden="true">😎</div>
+
+      <h3>Hoi, ik ben Twan!</h3>
+
+      <p class="profile-role">Student · Gamer · Nieuwsgierig</p>
+
+      <div class="profile-badges">
+        <span class="profile-badge">🎮 Gamer</span>
+        <span class="profile-badge">💻 ICT</span>
+        <span class="profile-badge">🐾 Dierenliefhebber</span>
+      </div>
+    </div>
+
+    <div class="about-copy reveal">
+
+      <span class="eyebrow">Leer mij kennen</span>
+
+      <h2>Wie ben ik <span class="gradient-text">eigenlijk?</span></h2>
+
+      <p>
+        Hoi! Ik ben Twan en ik ben 15 jaar oud.
+        Op deze website vertel ik meer over verschillende
+        onderwerpen rondom computers en technologie.
+      </p>
+
+      <p>
+        Ik heb een broer van 17 jaar. Thuis hebben we
+        ook twee katten en twee konijnen. Het is gezellig
+        om dieren om me heen te hebben!
+      </p>
+
+      <p>
+        Een van mijn hobby's is gamen. In mijn vrije tijd
+        speel ik graag games. Daarnaast vind ik het leuk
+        om deze website te maken en informatie over
+        digitale onderwerpen bij elkaar te zetten.
+      </p>
+
+      <div class="about-facts">
+
+        <div class="fact-card">
+          <span class="fact-icon">🎂</span>
+          <div>
+            <strong>15 jaar</strong>
+            <small>Mijn leeftijd</small>
+          </div>
+        </div>
+
+        <div class="fact-card">
+          <span class="fact-icon">👦</span>
+          <div>
+            <strong>Een broer</strong>
+            <small>Hij is 17 jaar</small>
+          </div>
+        </div>
+
+        <div class="fact-card">
+          <span class="fact-icon">🐱</span>
+          <div>
+            <strong>Twee katten</strong>
+            <small>Onze katten</small>
+          </div>
+        </div>
+
+        <div class="fact-card">
+          <span class="fact-icon">🐰</span>
+          <div>
+            <strong>Twee konijnen</strong>
+            <small>Onze konijnen</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =======================================
+     MIJN HOBBY
+======================================= -->
+
+<section class="section hobby-section" id="hobby">
+  <div class="container">
+
+    <div class="hobby-panel reveal">
+
+      <div>
+        <span class="eyebrow">Wat doe ik graag?</span>
+
+        <h3>🎮 Gamen is mijn hobby!</h3>
+
+        <p>
+          In mijn vrije tijd vind ik het leuk om te gamen.
+          Games kunnen je laten samenwerken, nadenken
+          en nieuwe uitdagingen aangaan. Iedereen heeft
+          natuurlijk zijn eigen favoriete games!
+        </p>
+
+        <a href="#quiz" class="button button-primary" style="margin-top: 24px;">
+          Test je ICT-kennis →
+        </a>
+      </div>
+
+      <div class="game-emoji" aria-hidden="true">🎮</div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =======================================
+     INTERESSANTE WEETJES
+======================================= -->
+
+<section class="section facts-section" id="weetjes">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Wist je dat?</span>
+      <h2>De digitale wereld zit vol <span class="gradient-text">weetjes</span></h2>
+      <p>
+        Hier zijn drie interessante feiten over computers
+        en technologie.
+      </p>
+    </div>
+
+    <div class="fact-grid">
+
+      <article class="fun-fact reveal">
+        <span class="fact-emoji">💾</span>
+        <h3>Alles bestaat uit data</h3>
+        <p>
+          Computers slaan gegevens op als bits.
+          Een bit kan de waarde 0 of 1 hebben.
+          Veel bits samen kunnen tekst, afbeeldingen
+          en geluid voorstellen.
+        </p>
+      </article>
+
+      <article class="fun-fact reveal">
+        <span class="fact-emoji">🌈</span>
+        <h3>Schermen maken kleuren</h3>
+        <p>
+          Veel schermen gebruiken rode, groene en blauwe
+          lichtpuntjes. Door hun intensiteit te combineren
+          kunnen miljoenen verschillende kleuren ontstaan.
+        </p>
+      </article>
+
+      <article class="fun-fact reveal">
+        <span class="fact-emoji">🧠</span>
+        <h3>AI leert patronen</h3>
+        <p>
+          Veel AI-systemen worden getraind met voorbeelden.
+          Daardoor kunnen ze patronen leren herkennen
+          en voorspellingen doen over nieuwe gegevens.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =======================================
+     ICT QUIZ
+======================================= -->
+
+<section class="section quiz-section" id="quiz">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <span class="eyebrow">Tijd voor een uitdaging</span>
+      <h2>Test jouw <span class="gradient-text">ICT-kennis!</span></h2>
+      <p>
+        Beantwoord vijf vragen over computers,
+        kleuren, data en kunstmatige intelligentie.
+      </p>
+    </div>
+
+    <div class="quiz-box reveal">
+
+      <div class="quiz-header">
+        <h3>🧠 De ICT-quiz</h3>
+        <span class="quiz-counter" id="quiz-counter">
+          Vraag 1 van 5
+        </span>
+      </div>
+
+      <div
+        class="quiz-progress"
+        role="progressbar"
+        aria-label="Voortgang van de quiz"
+        aria-valuemin="0"
+        aria-valuemax="5"
+        aria-valuenow="0"
+        id="quiz-progress">
+        <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+      </div>
+
+      <div id="quiz-content" aria-live="polite">
+
+        <h4 class="quiz-question" id="quiz-question">
+          Waaruit bestaat het binaire stelsel?
+        </h4>
+
+        <div class="quiz-answers" id="quiz-answers"></div>
+
+        <p class="quiz-feedback" id="quiz-feedback">
+          Kies het antwoord dat volgens jou goed is.
+        </p>
+
+      </div>
+
+      <div class="quiz-footer">
+        <span class="quiz-score" id="quiz-score">Score: 0</span>
+
+        <button
+          class="button button-primary"
+          id="quiz-next"
+          type="button"
+          disabled>
+          Volgende vraag →
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =======================================
+     AFSLUITING
+======================================= -->
+
+<section class="cta">
+  <div class="container">
+
+    <div class="cta-panel reveal">
+
+      <span class="eyebrow">Bedankt voor het bezoeken</span>
+
+      <h2>Ben je klaar om <span class="gradient-text">meer te leren?</span></h2>
+
+      <p>
+        Bekijk de onderwerpen via het dropdownmenu.
+        De bijbehorende pagina's worden later toegevoegd.
+        Kom gerust nog eens terug!
+      </p>
+
+      <a href="#home" class="button button-primary">
+        Terug naar het begin ↑
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- =======================================
+     FOOTER
+======================================= -->
+
+<footer>
+  <div class="container">
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <a class="logo" href="#home">
+          <span class="logo-icon">T</span>
+          <span>Twan's Webwereld</span>
+        </a>
+
+        <p>
+          Mijn persoonlijke website over technologie,
+          ICT en de dingen die ik interessant vind.
+          Gemaakt met HTML, CSS en JavaScript.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigatie</h4>
+        <a href="#home">Home</a>
+        <a href="#onderwerpen">Onderwerpen</a>
+        <a href="#over-mij">Over mij</a>
+        <a href="#quiz">ICT-quiz</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Onderwerpen</h4>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+        <a href="binair-stelsel.html">Binair stelsel</a>
+        <a href="compressie.html">Compressie</a>
+        <a href="ai.html">Kunstmatige intelligentie</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Twan's Webwereld</span>
+      <span>Met 💜 gemaakt door Twan</span>
+    </div>
+
+  </div>
+</footer>
+
+<button
+  class="back-to-top"
+  id="back-to-top"
+  aria-label="Terug naar boven"
+  title="Terug naar boven">
+  ↑
+</button>
+
+<!-- =======================================
+     JAVASCRIPT
+======================================= -->
+
+<script>
+/* =========================================
+   1. DROPDOWNMENU
+========================================= */
+
+const dropdown = document.getElementById("dropdown");
+const dropdownToggle = document.getElementById("dropdown-toggle");
+
+function closeDropdown() {
+  dropdown.classList.remove("open");
+  dropdownToggle.setAttribute("aria-expanded", "false");
+}
+
+dropdownToggle.addEventListener("click", function () {
+  const isOpen = dropdown.classList.toggle("open");
+
+  dropdownToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+document.addEventListener("click", function (event) {
+  if (!dropdown.contains(event.target)) {
+    closeDropdown();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeDropdown();
+  }
+});
+
+dropdown.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", closeDropdown);
+});
+
+/* =========================================
+   2. MOBIEL MENU
+========================================= */
+
+const mobileToggle = document.getElementById("mobile-toggle");
+const navLinks = document.getElementById("nav-links");
+
+mobileToggle.addEventListener("click", function () {
+  const isOpen = navLinks.classList.toggle("mobile-open");
+
+  mobileToggle.setAttribute("aria-expanded", String(isOpen));
+  mobileToggle.textContent = isOpen ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    navLinks.classList.remove("mobile-open");
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.textContent = "☰";
+  });
+});
+
+/* =========================================
+   3. LICHT EN DONKER THEMA
+========================================= */
+
+const themeToggle = document.getElementById("theme-toggle");
+
+themeToggle.addEventListener("click", function () {
+  const lightEnabled = document.body.classList.toggle("light-theme");
+
+  themeToggle.textContent = lightEnabled ? "🌙" : "☀️";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    lightEnabled ? "Schakel naar donker thema" : "Schakel naar licht thema"
+  );
+});
+
+/* =========================================
+   4. ZOEKFUNCTIE
+========================================= */
+
+const searchInput = document.getElementById("topic-search");
+const topicCards = document.querySelectorAll(".topic-card");
+const noResults = document.getElementById("no-results");
+
+searchInput.addEventListener("input", function () {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  let visibleCards = 0;
+
+  topicCards.forEach(function (card) {
+    const searchableText =
+      (card.textContent + " " + card.dataset.search).toLowerCase();
+
+    const matches = searchableText.includes(searchTerm);
+
+    card.hidden = !matches;
+
+    if (matches) {
+      visibleCards++;
+    }
+  });
+
+  noResults.style.display = visibleCards === 0 ? "block" : "none";
+});
+
+/* =========================================
+   5. SCROLL-VOORTGANGSBALK
+========================================= */
+
+const progressBar = document.getElementById("progress-bar");
+const backToTop = document.getElementById("back-to-top");
+
+function updateScrollElements() {
+  const scrollableHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const scrollPosition = window.scrollY;
+
+  const progress = scrollableHeight > 0
+    ? (scrollPosition / scrollableHeight) * 100
+    : 0;
+
+  progressBar.style.width = progress + "%";
+
+  backToTop.classList.toggle("visible", scrollPosition > 450);
+}
+
+window.addEventListener("scroll", updateScrollElements, {
+  passive: true
+});
+
+window.addEventListener("resize", updateScrollElements);
+
+backToTop.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+updateScrollElements();
+
+/* =========================================
+   6. ANIMATIES BIJ SCROLLEN
+========================================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+  revealElements.forEach(function (element) {
+    revealObserver.observe(element);
+  });
+} else {
+  revealElements.forEach(function (element) {
+    element.classList.add("revealed");
+  });
+}
+
+/* =========================================
+   7. ICT-QUIZ
+========================================= */
+
+const questions = [
+  {
+    question: "Waaruit bestaat het binaire stelsel?",
+    answers: [
+      "Alleen uit de cijfers 0 en 1",
+      "Uit de cijfers 1 tot en met 10",
+      "Uit letters en leestekens",
+      "Uit kleuren"
+    ],
+    correct: 0,
+    explanation:
+      "Goed! Het binaire stelsel gebruikt alleen nullen en enen."
+  },
+  {
+    question: "Waar staat RGB voor?",
+    answers: [
+      "Red, Green, Blue",
+      "Really Good Bytes",
+      "Random Graphic Background",
+      "Red, Grey, Black"
+    ],
+    correct: 0,
+    explanation:
+      "Precies! RGB staat voor rood, groen en blauw."
+  },
+  {
+    question: "Wat is compressie?",
+    answers: [
+      "Een computer uitzetten",
+      "Een bestand kleiner maken",
+      "Een scherm helderder maken",
+      "Een toetsenbord aansluiten"
+    ],
+    correct: 1,
+    explanation:
+      "Goed! Compressie verkleint de hoeveelheid gegevens die nodig is om informatie op te slaan."
+  },
+  {
+    question: "Wat betekent AI?",
+    answers: [
+      "Automatische Internetverbinding",
+      "Algemene Informatie",
+      "Kunstmatige intelligentie",
+      "Actieve Interface"
+    ],
+    correct: 2,
+    explanation:
+      "Goed! AI is de afkorting van Artificial Intelligence, oftewel kunstmatige intelligentie."
+  },
+  {
+    question: "Wat is één bit?",
+    answers: [
+      "Altijd 8 bytes",
+      "Een eenheid die 0 of 1 kan voorstellen",
+      "Een soort processor",
+      "Een afbeelding"
+    ],
+    correct: 1,
+    explanation:
+      "Helemaal goed! Een bit kan een van twee waarden hebben: 0 of 1."
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+const quizQuestion = document.getElementById("quiz-question");
+const quizAnswers = document.getElementById("quiz-answers");
+const quizFeedback = document.getElementById("quiz-feedback");
+const quizCounter = document.getElementById("quiz-counter");
+const quizScore = document.getElementById("quiz-score");
+const quizNext = document.getElementById("quiz-next");
+const quizProgress = document.getElementById("quiz-progress");
+const quizProgressFill = document.getElementById("quiz-progress-fill");
+const quizContent = document.getElementById("quiz-content");
+
+function renderQuestion() {
+  answered = false;
+
+  const question = questions[currentQuestion];
+
+  quizCounter.textContent =
+    "Vraag " + (currentQuestion + 1) + " van " + questions.length;
+
+  quizProgressFill.style.width =
+    (currentQuestion / questions.length * 100) + "%";
+
+  quizProgress.setAttribute("aria-valuenow", String(currentQuestion));
+
+  quizQuestion.textContent = question.question;
+  quizAnswers.innerHTML = "";
+  quizFeedback.textContent = "Kies het antwoord dat volgens jou goed is.";
+
+  quizScore.textContent = "Score: " + score;
+  quizNext.disabled = true;
+  quizNext.textContent =
+    currentQuestion === questions.length - 1
+      ? "Bekijk resultaat"
+      : "Volgende vraag →";
+
+  question.answers.forEach(function (answer, index) {
+    const button = document.createElement("button");
+
+    button.className = "quiz-answer";
+    button.textContent = answer;
+    button.type = "button";
+
+    button.addEventListener("click", function () {
+      selectAnswer(index);
+    });
+
+    quizAnswers.appendChild(button);
+  });
+}
+
+function selectAnswer(selectedIndex) {
+  if (answered) {
+    return;
+  }
+
+  answered = true;
+
+  const question = questions[currentQuestion];
+  const buttons = quizAnswers.querySelectorAll(".quiz-answer");
+  const isCorrect = selectedIndex === question.correct;
+
+  if (isCorrect) {
+    score++;
+    quizFeedback.textContent = "✅ " + question.explanation;
+  } else {
+    quizFeedback.textContent =
+      "❌ Helaas! " + question.explanation;
+  }
+
+  buttons.forEach(function (button, index) {
+    button.disabled = true;
+
+    if (index === question.correct) {
+      button.classList.add("correct");
+    } else if (index === selectedIndex) {
+      button.classList.add("wrong");
+    }
+  });
+
+  quizScore.textContent = "Score: " + score;
+  quizProgressFill.style.width =
+    ((currentQuestion + 1) / questions.length * 100) + "%";
+
+  quizProgress.setAttribute(
+    "aria-valuenow",
+    String(currentQuestion + 1)
+  );
+
+  quizNext.disabled = false;
+}
+
+function showQuizResult() {
+  quizCounter.textContent = "Quiz afgerond!";
+  quizProgressFill.style.width = "100%";
+  quizProgress.setAttribute("aria-valuenow", "5");
+
+  let message;
+
+  if (score === 5) {
+    message = "Fantastisch! Je hebt alle vragen goed beantwoord!";
+  } else if (score >= 3) {
+    message = "Goed gedaan! Je hebt al behoorlijk wat ICT-kennis.";
+  } else {
+    message = "Goed geprobeerd! Probeer het nog eens en leer bij.";
+  }
+
+  quizContent.innerHTML = "";
+
+  const resultTitle = document.createElement("h4");
+  resultTitle.className = "quiz-question";
+  resultTitle.textContent = "🏆 Je resultaat: " + score + " van 5";
+
+  const resultMessage = document.createElement("p");
+  resultMessage.className = "quiz-feedback";
+  resultMessage.textContent = message;
+
+  quizContent.appendChild(resultTitle);
+  quizContent.appendChild(resultMessage);
+
+  quizScore.textContent = Math.round(score / questions.length * 100) + "% goed";
+  quizNext.disabled = false;
+  quizNext.textContent = "Opnieuw spelen";
+}
+
+quizNext.addEventListener("click", function () {
+  if (currentQuestion === questions.length) {
+    currentQuestion = 0;
+    score = 0;
+    renderQuestion();
+    return;
+  }
+
+  if (!answered) {
+    return;
+  }
+
+  if (currentQuestion === questions.length - 1) {
+    currentQuestion++;
+    showQuizResult();
+    return;
+  }
+
+  currentQuestion++;
+  renderQuestion();
+});
+
+renderQuestion();
+
+/* =========================================
+   8. DROPDOWN SLUITEN BIJ MOBIELE NAVIGATIE
+========================================= */
+
+window.addEventListener("resize", function () {
+  if (window.innerWidth > 680) {
+    navLinks.classList.remove("mobile-open");
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.textContent = "☰";
+  }
+});
+</script>
 
 </body>
 </html>
-```
