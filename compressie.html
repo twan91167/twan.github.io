@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compressie - Mijn website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #263849;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        nav {
+            background-color: #34495e;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #7ed6df;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        h2 {
+            color: #263849;
+        }
+
+        .voorbeeld {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .knop {
+            display: inline-block;
+            background-color: #263849;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .knop:hover {
+            background-color: #34495e;
+        }
+
+        footer {
+            background-color: #263849;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            main {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Compressie</h1>
+        <p>Hoe maak je bestanden kleiner?</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+        <a href="binair-stelsel.html">Binair stelsel</a>
+        <a href="compressie.html">Compressie</a>
+        <a href="ai.html">AI</a>
+    </nav>
+
+    <main>
+
+        <section>
+            <h2>Wat is compressie?</h2>
+            <p>
+                Compressie betekent dat je een bestand kleiner maakt.
+                Hierdoor neemt het minder opslagruimte in en kun je het
+                vaak sneller versturen via internet.
+            </p>
+
+            <p>
+                Compressie wordt bijvoorbeeld gebruikt bij foto's, video's,
+                muziek en andere bestanden.
+            </p>
+        </section>
+
+        <section>
+            <h2>Lossless en lossy compressie</h2>
+
+            <div class="voorbeeld">
+                <h3>Lossless compressie</h3>
+                <p>
+                    Bij lossless compressie gaat er geen informatie verloren.
+                    Na het uitpakken kun je het originele bestand precies terugkrijgen.
+                    Dit wordt bijvoorbeeld gebruikt bij ZIP-bestanden.
+                </p>
+            </div>
+
+            <div class="voorbeeld">
+                <h3>Lossy compressie</h3>
+                <p>
+                    Bij lossy compressie wordt een deel van de informatie verwijderd
+                    om het bestand kleiner te maken. Je merkt het kwaliteitsverlies
+                    soms bijna niet. Dit wordt bijvoorbeeld gebruikt bij JPEG-foto's
+                    en sommige video's.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Wat is een bitmap?</h2>
+            <p>
+                Een bitmapafbeelding bestaat uit heel veel kleine puntjes.
+                Die puntjes noemen we pixels. Elke pixel heeft een eigen kleur.
+                Samen vormen de pixels de afbeelding.
+            </p>
+
+            <p>
+                Foto's die je met een telefoon maakt, zijn meestal bitmapafbeeldingen.
+                Als je zo'n afbeelding heel ver vergroot, kun je de losse pixels zien.
+            </p>
+
+            <div class="voorbeeld">
+                <h3>Voordelen en nadelen</h3>
+                <p>
+                    Voordeel: bitmap is geschikt voor foto's met veel details en kleuren.
+                </p>
+                <p>
+                    Nadeel: als je een bitmap te ver vergroot, wordt de afbeelding
+                    vaak blokkerig of onscherp.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Wat is een vectorafbeelding?</h2>
+            <p>
+                Een vectorafbeelding bestaat niet uit pixels, maar uit vormen,
+                lijnen en punten die met wiskundige informatie worden beschreven.
+                De computer berekent hoe de afbeelding eruit moet zien.
+            </p>
+
+            <p>
+                Logo's en eenvoudige tekeningen worden vaak als vector opgeslagen.
+                Je kunt een vectorafbeelding groter of kleiner maken zonder dat
+                de randen blokkerig worden.
+            </p>
+
+            <div class="voorbeeld">
+                <h3>Voordelen en nadelen</h3>
+                <p>
+                    Voordeel: een vectorafbeelding blijft scherp, ook als je hem
+                    heel groot maakt.
+                </p>
+                <p>
+                    Nadeel: vector is minder geschikt voor gewone foto's met
+                    heel veel kleine details en kleurverlopen.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Bitmap en vector vergelijken</h2>
+
+            <p>
+                Het belangrijkste verschil is de manier waarop de afbeelding wordt
+                opgebouwd. Een bitmap gebruikt pixels en een vector gebruikt
+                berekende vormen en lijnen.
+            </p>
+
+            <div class="voorbeeld">
+                <p><strong>Bitmap:</strong> geschikt voor foto's.</p>
+                <p><strong>Vector:</strong> geschikt voor logo's en pictogrammen.</p>
+                <p>
+                    Een bitmap kan onscherp worden bij het vergroten.
+                    Een vector blijft scherp bij het vergroten.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Wat heb ik geleerd?</h2>
+            <p>
+                Ik heb geleerd dat compressie bestanden kleiner maakt.
+                Bij lossless compressie gaat geen informatie verloren, terwijl
+                bij lossy compressie een deel van de informatie wordt verwijderd.
+                Ik weet nu ook dat bitmapafbeeldingen uit pixels bestaan en
+                vectorafbeeldingen uit vormen en lijnen.
+            </p>
+        </section>
+
+        <a class="knop" href="index.html">← Terug naar home</a>
+
+    </main>
+
+    <footer>
+        <p>Gemaakt door Twan | 2026</p>
+    </footer>
+
+</body>
+</html>
