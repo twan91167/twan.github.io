@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Home - Mijn ICT-website</title>
+    <title>Mijn ICT-website</title>
 
     <style>
         * {
@@ -15,310 +14,133 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f5f7;
-            color: #333;
-        }
-
-        /* De navigatie aan de linkerkant */
-        .zijbalk {
-            width: 230px;
-            height: 100vh;
-            background: #202b3c;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 30px 20px;
-        }
-
-        .zijbalk h2 {
-            color: white;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .zijbalk p {
-            color: #bdc8d8;
-            font-size: 14px;
+            background-color: #f4f6f8;
+            color: #263238;
             line-height: 1.6;
-            margin-bottom: 35px;
         }
 
-        .zijbalk a {
-            display: block;
-            color: #e7edf5;
-            text-decoration: none;
-            padding: 13px 12px;
-            margin-bottom: 8px;
-            border-radius: 7px;
-        }
-
-        .zijbalk a:hover,
-        .zijbalk a.actief {
-            background: #385b88;
+        /* Grote titel bovenaan */
+        header {
+            background-color: #183153;
             color: white;
+            text-align: center;
+            padding: 55px 20px;
         }
 
-        /* De hoofdinhoud rechts van de zijbalk */
-        .inhoud {
-            margin-left: 230px;
-        }
-
-        /* Grote introductie */
-        .welkom {
-            background: #dce8f7;
-            padding: 65px 8%;
-            min-height: 320px;
-            display: flex;
-            align-items: center;
-        }
-
-        .welkom-tekst {
-            max-width: 750px;
-        }
-
-        .welkom .label {
-            color: #315b91;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .welkom h1 {
-            color: #202b3c;
+        header h1 {
+            margin: 0;
             font-size: 42px;
-            margin: 15px 0;
         }
 
-        .welkom p {
-            font-size: 17px;
-            line-height: 1.8;
-            max-width: 650px;
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #dce6f1;
         }
 
-        .knop {
-            display: inline-block;
-            background: #315b91;
+        /* Horizontaal menu */
+        nav {
+            background-color: #24476b;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        nav a {
             color: white;
             text-decoration: none;
-            padding: 13px 20px;
-            border-radius: 6px;
-            margin-top: 12px;
-            font-weight: bold;
+            padding: 12px 18px;
+            border-radius: 5px;
         }
 
-        .knop:hover {
-            background: #203f68;
+        nav a:hover {
+            background-color: #3d638c;
         }
 
         /* Algemene inhoud */
         main {
-            max-width: 1150px;
-            margin: auto;
-            padding: 35px 6%;
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 0 20px;
         }
 
         section {
-            margin-bottom: 45px;
+            margin-bottom: 35px;
         }
 
         h2 {
-            color: #202b3c;
-            font-size: 26px;
-            margin-top: 0;
+            color: #183153;
+            margin-bottom: 12px;
         }
 
-        p {
-            line-height: 1.8;
-        }
-
-        /* Persoonlijk stukje */
-        .over-mij {
-            display: grid;
-            grid-template-columns: 170px 1fr;
-            gap: 25px;
-            background: white;
-            padding: 28px;
+        /* Welkomstgedeelte */
+        .welkom {
+            background-color: white;
+            padding: 30px;
             border-radius: 10px;
-            align-items: start;
-            border: 1px solid #e2e5ea;
+            border-left: 6px solid #4c83b6;
         }
 
-        .profiel {
-            background: #dce8f7;
-            color: #315b91;
-            border-radius: 10px;
-            min-height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 55px;
-        }
-
-        .over-mij h2 {
-            margin-bottom: 10px;
-        }
-
-        /* Onderwerpen als lijst */
+        /* Onderwerpen */
         .onderwerpen {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .onderwerp {
-            display: grid;
-            grid-template-columns: 65px 1fr auto;
-            align-items: center;
-            gap: 18px;
-            background: white;
-            padding: 20px;
-            border-radius: 9px;
-            border: 1px solid #e2e5ea;
-        }
-
-        .onderwerp-icoon {
-            width: 55px;
-            height: 55px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #eaf0f9;
-            border-radius: 9px;
-            font-size: 27px;
+            background-color: white;
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid #e0e5eb;
         }
 
         .onderwerp h3 {
-            color: #202b3c;
-            margin: 0 0 5px;
-        }
-
-        .onderwerp p {
-            margin: 0;
-            color: #606a78;
-            font-size: 15px;
+            margin-top: 0;
+            color: #24476b;
         }
 
         .onderwerp a {
-            background: #315b91;
-            color: white;
-            text-decoration: none;
-            padding: 10px 14px;
-            border-radius: 6px;
+            display: inline-block;
+            margin-top: 8px;
+            color: #245f96;
             font-weight: bold;
-            font-size: 14px;
-            white-space: nowrap;
+            text-decoration: none;
         }
 
         .onderwerp a:hover {
-            background: #203f68;
+            text-decoration: underline;
         }
 
-        /* Wat ik leer */
-        .leerblok {
-            background: #202b3c;
-            color: white;
-            padding: 30px;
+        /* Over mij */
+        .over-mij {
+            background-color: #e3edf7;
+            padding: 25px;
             border-radius: 10px;
         }
 
-        .leerblok h2 {
-            color: white;
-        }
-
-        .leerblok p {
-            color: #e0e6ef;
-            margin-bottom: 0;
-        }
-
-        /* Footer */
         footer {
-            margin-left: 230px;
-            background: #e5e9ef;
-            color: #505967;
+            background-color: #183153;
+            color: white;
             text-align: center;
-            padding: 20px;
+            padding: 18px;
+            margin-top: 45px;
         }
 
-        footer p {
-            margin: 5px;
-        }
-
-        /* Geschikt voor tablets en telefoons */
-        @media (max-width: 800px) {
-            .zijbalk {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 20px;
+        /* Geschikt voor telefoons */
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 32px;
             }
 
-            .zijbalk p {
-                margin-bottom: 15px;
-            }
-
-            .zijbalk nav {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 5px;
-            }
-
-            .zijbalk a {
-                margin-bottom: 0;
-                padding: 10px;
-            }
-
-            .inhoud {
-                margin-left: 0;
-            }
-
-            footer {
-                margin-left: 0;
-            }
-
-            .welkom {
-                padding: 45px 25px;
-            }
-
-            .welkom h1 {
-                font-size: 34px;
-            }
-
-            main {
-                padding: 30px 20px;
-            }
-        }
-
-        @media (max-width: 520px) {
-            .welkom h1 {
-                font-size: 29px;
-            }
-
-            .over-mij {
+            .onderwerpen {
                 grid-template-columns: 1fr;
             }
 
-            .profiel {
-                min-height: 100px;
-            }
-
-            .onderwerp {
-                grid-template-columns: 50px 1fr;
-                gap: 12px;
-                padding: 15px;
-            }
-
-            .onderwerp-icoon {
-                width: 45px;
-                height: 45px;
-                font-size: 23px;
-            }
-
-            .onderwerp a {
-                grid-column: 2;
-                justify-self: start;
+            nav a {
+                padding: 10px 12px;
             }
         }
     </style>
@@ -326,161 +148,99 @@
 
 <body>
 
-    <!-- Navigatie aan de linkerkant -->
-    <aside class="zijbalk">
-        <h2>Mijn website</h2>
-        <p>Een website over computers en ICT</p>
+    <header>
+        <h1>Welkom op mijn ICT-website</h1>
+        <p>Hier vertel ik over verschillende onderwerpen uit de ICT</p>
+    </header>
 
-        <nav>
-            <a href="index.html" class="actief">🏠 Home</a>
-            <a href="kleurmodellen.html">🎨 Kleurmodellen</a>
-            <a href="binair-stelsel.html">💻 Binair stelsel</a>
-            <a href="compressie.html">📦 Compressie</a>
-            <a href="ai.html">🤖 Kunstmatige intelligentie</a>
-            <a href="#over-mij">👤 Over mij</a>
-        </nav>
-    </aside>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#onderwerpen">Onderwerpen</a>
+        <a href="kleurmodellen.html">Kleurmodellen</a>
+        <a href="binair-stelsel.html">Binair stelsel</a>
+        <a href="compressie.html">Compressie</a>
+        <a href="ai.html">Kunstmatige intelligentie</a>
+        <a href="#over-mij">Over mij</a>
+    </nav>
 
-    <div class="inhoud">
+    <main>
 
-        <!-- Welkomstgedeelte -->
-        <header class="welkom">
-            <div class="welkom-tekst">
-                <div class="label">Mijn ICT-opdracht</div>
+        <section class="welkom">
+            <h2>Welkom!</h2>
+            <p>
+                Leuk dat je mijn website bezoekt. Voor mijn ICT-opdracht
+                heb ik informatie verzameld over verschillende onderwerpen.
+                Op deze website kun je lezen wat deze onderwerpen betekenen
+                en hoe ze met computers te maken hebben.
+            </p>
+        </section>
 
-                <h1>Welkom op mijn website!</h1>
+        <section id="onderwerpen">
+            <h2>De onderwerpen</h2>
+            <p>
+                Hieronder vind je de onderwerpen die ik op mijn website behandel.
+                Klik op een link om meer informatie te bekijken.
+            </p>
 
-                <p>
-                    Hoi! Ik ben Twan en op deze website vertel ik over
-                    verschillende onderwerpen die met computers en
-                    technologie te maken hebben. Ik leg uit wat ik heb
-                    geleerd en geef voorbeelden bij de onderwerpen.
-                </p>
+            <div class="onderwerpen">
 
-                <a class="knop" href="#onderwerpen">
-                    Ontdek de onderwerpen →
-                </a>
+                <article class="onderwerp">
+                    <h3>Kleurmodellen</h3>
+                    <p>
+                        Hoe worden kleuren op een scherm weergegeven?
+                        En wat is het verschil tussen RGB en CMYK?
+                    </p>
+                    <a href="kleurmodellen.html">Bekijk kleurmodellen →</a>
+                </article>
+
+                <article class="onderwerp">
+                    <h3>Het binaire stelsel</h3>
+                    <p>
+                        Computers werken met nullen en enen.
+                        Hier lees je hoe het binaire stelsel werkt.
+                    </p>
+                    <a href="binair-stelsel.html">Bekijk het binaire stelsel →</a>
+                </article>
+
+                <article class="onderwerp">
+                    <h3>Compressie</h3>
+                    <p>
+                        Bestanden kunnen kleiner worden gemaakt.
+                        Dat noemen we compressie.
+                    </p>
+                    <a href="compressie.html">Bekijk compressie →</a>
+                </article>
+
+                <article class="onderwerp">
+                    <h3>Kunstmatige intelligentie</h3>
+                    <p>
+                        Wat is AI en waarvoor wordt het gebruikt?
+                        Ontdek meer over kunstmatige intelligentie.
+                    </p>
+                    <a href="ai.html">Bekijk AI →</a>
+                </article>
+
             </div>
-        </header>
+        </section>
 
-        <main>
+        <section id="over-mij" class="over-mij">
+            <h2>Over mij</h2>
+            <p>
+                Hoi, ik ben Twan en ik ben 15 jaar oud.
+                Ik heb een broer van 17 jaar, twee katten en twee konijnen.
+                In mijn vrije tijd game ik graag.
+            </p>
+            <p>
+                Ik heb deze website gemaakt voor een schoolopdracht
+                over ICT. Ik hoop dat je de informatie duidelijk en
+                interessant vindt.
+            </p>
+        </section>
 
-            <!-- Over mij -->
-            <section id="over-mij">
-                <div class="over-mij">
-                    <div class="profiel">👨‍💻</div>
-
-                    <div>
-                        <h2>Wie ben ik?</h2>
-
-                        <p>
-                            Hoi, ik ben Twan en ik ben 15 jaar oud.
-                            Ik heb een broer van 17 jaar. Thuis hebben
-                            we ook twee katten en twee konijnen.
-                        </p>
-
-                        <p>
-                            Een van mijn hobby's is gamen.
-                            Ik vind het ook leuk om met computers bezig
-                            te zijn en nieuwe dingen te leren.
-                            Met deze website laat ik zien wat ik voor
-                            mijn ICT-opdracht heb gemaakt.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- De verschillende onderwerpen -->
-            <section id="onderwerpen">
-                <h2>Mijn ICT-onderwerpen</h2>
-
-                <p>
-                    Hieronder vind je de onderwerpen die ik op mijn
-                    website behandel. Klik op een onderwerp om naar
-                    de bijbehorende pagina te gaan.
-                </p>
-
-                <div class="onderwerpen">
-
-                    <div class="onderwerp">
-                        <div class="onderwerp-icoon">🎨</div>
-
-                        <div>
-                            <h3>Kleurmodellen</h3>
-                            <p>
-                                Hoe computers kleuren maken met RGB,
-                                CMYK en pixels.
-                            </p>
-                        </div>
-
-                        <a href="kleurmodellen.html">Bekijk pagina →</a>
-                    </div>
-
-                    <div class="onderwerp">
-                        <div class="onderwerp-icoon">💻</div>
-
-                        <div>
-                            <h3>Binair stelsel</h3>
-                            <p>
-                                Hoe computers informatie opslaan
-                                met nullen en enen.
-                            </p>
-                        </div>
-
-                        <a href="binair-stelsel.html">Bekijk pagina →</a>
-                    </div>
-
-                    <div class="onderwerp">
-                        <div class="onderwerp-icoon">📦</div>
-
-                        <div>
-                            <h3>Compressie</h3>
-                            <p>
-                                Hoe bestanden kleiner worden gemaakt
-                                en waarom dat handig is.
-                            </p>
-                        </div>
-
-                        <a href="compressie.html">Bekijk pagina →</a>
-                    </div>
-
-                    <div class="onderwerp">
-                        <div class="onderwerp-icoon">🤖</div>
-
-                        <div>
-                            <h3>Kunstmatige intelligentie</h3>
-                            <p>
-                                Wat AI is en hoe computers taken
-                                kunnen uitvoeren die slim lijken.
-                            </p>
-                        </div>
-
-                        <a href="ai.html">Bekijk pagina →</a>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Wat ik leer -->
-            <section class="leerblok">
-                <h2>Wat leer ik hiervan?</h2>
-
-                <p>
-                    Door deze website te maken leer ik meer over ICT,
-                    maar ook hoe ik zelf een website kan bouwen.
-                    HTML gebruik ik voor de inhoud en CSS voor de opmaak.
-                    Ik probeer de informatie zo duidelijk mogelijk
-                    uit te leggen en de website overzichtelijk te houden.
-                </p>
-            </section>
-
-        </main>
-
-    </div>
+    </main>
 
     <footer>
         <p>Gemaakt door Twan | 2026</p>
-        <p>Mijn website over computers en ICT</p>
     </footer>
 
 </body>
