@@ -1,189 +1,229 @@
-
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Welkom op mijn website</title>
+    <title>Home - Mijn ICT-website</title>
 
     <style>
-        /* De algemene opmaak van de website */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f0f4f8;
-            color: #333333;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            color: #303846;
         }
 
-        /* De bovenkant van de website */
         header {
-            background-color: #263b5e;
+            background: #172b4d;
             color: white;
-            text-align: center;
-            padding: 30px;
+            padding: 20px 8%;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
-
-        header p {
-            margin-bottom: 0;
-        }
-
-        /* Het navigatiemenu */
-        nav {
-            background-color: #345786;
+        .bovenkant {
+            max-width: 1100px;
+            margin: auto;
             display: flex;
-            justify-content: center;
-        }
-
-        nav a, .dropdown-knop {
-            color: white;
-            padding: 15px 20px;
-            text-decoration: none;
-            display: block;
-            font-size: 16px;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
-        }
-
-        nav a:hover, .dropdown-knop:hover {
-            background-color: #1d304d;
-        }
-
-        /* Het dropdownmenu */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-inhoud {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 190px;
-            box-shadow: 0 4px 8px #00000033;
-            z-index: 1;
-        }
-
-        .dropdown-inhoud a {
-            color: #333333;
-            padding: 12px 15px;
-        }
-
-        .dropdown-inhoud a:hover {
-            background-color: #e1eaf5;
-        }
-
-        .dropdown:hover .dropdown-inhoud,
-        .dropdown:focus-within .dropdown-inhoud {
-            display: block;
-        }
-
-        /* De inhoud van de pagina */
-        main {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* De verschillende witte vakken */
-        section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px #00000012;
-        }
-
-        h2 {
-            color: #263b5e;
-            border-bottom: 2px solid #d9e4f2;
-            padding-bottom: 10px;
-        }
-
-        p {
-            line-height: 1.7;
-        }
-
-        /* De kaarten met onderwerpen */
-        .onderwerpen {
-            display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             gap: 15px;
         }
 
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover,
+        nav a.actief {
+            background: #345786;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #172b4d, #345786);
+            color: white;
+            padding: 75px 20px;
+        }
+
+        .intro-inhoud {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .intro h1 {
+            font-size: 42px;
+            margin: 0 0 18px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .intro-knop {
+            display: inline-block;
+            background: white;
+            color: #172b4d;
+            padding: 13px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .intro-knop:hover {
+            background: #e1eaf5;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #172b4d;
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .uitleg {
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .onderwerpen {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
         .kaart {
-            background-color: #eaf1fa;
-            padding: 18px;
-            border-radius: 8px;
-            flex: 1 1 180px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e0e7f0;
+            box-shadow: 0 4px 12px #172b4d0a;
+        }
+
+        .kaart:hover {
+            box-shadow: 0 6px 18px #172b4d18;
+        }
+
+        .icoon {
+            font-size: 32px;
+            margin-bottom: 12px;
         }
 
         .kaart h3 {
-            color: #263b5e;
+            color: #172b4d;
             margin-top: 0;
         }
 
+        .kaart p {
+            line-height: 1.7;
+        }
+
         .kaart a {
+            display: inline-block;
+            margin-top: 8px;
             color: #245ca6;
-            text-decoration: none;
             font-weight: bold;
+            text-decoration: none;
         }
 
         .kaart a:hover {
             text-decoration: underline;
         }
 
-        /* De informatie over mij */
         .over-mij {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
+            background: #e7eef8;
+            padding: 30px;
+            border-radius: 12px;
+            line-height: 1.8;
         }
 
-        .over-mij img {
-            width: 120px;
+        .over-mij h2 {
+            margin-top: 0;
         }
 
-        .over-mij-tekst {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        /* De onderkant van de website */
         footer {
-            background-color: #263b5e;
+            background: #172b4d;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 22px;
+            margin-top: 50px;
         }
 
-        /* De website geschikt maken voor telefoons */
-        @media (max-width: 600px) {
-            nav {
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 20px;
+            }
+
+            .bovenkant {
                 flex-direction: column;
-                text-align: center;
+                align-items: flex-start;
             }
 
-            .dropdown-inhoud {
-                position: static;
+            nav {
                 width: 100%;
-                box-sizing: border-box;
             }
 
-            header h1 {
-                font-size: 26px;
+            nav a {
+                padding: 9px;
+            }
+
+            .intro {
+                padding: 50px 20px;
+            }
+
+            .intro h1 {
+                font-size: 32px;
+            }
+
+            .intro p {
+                font-size: 16px;
+            }
+
+            .onderwerpen {
+                grid-template-columns: 1fr;
             }
 
             main {
-                padding: 0 12px;
+                padding: 0 15px;
+            }
+
+            .over-mij {
+                padding: 22px;
             }
         }
     </style>
@@ -191,145 +231,148 @@
 
 <body>
 
-    <!-- De titel van de website -->
-    <header>
-        <h1>Welkom op mijn website</h1>
-        <p>Leuk dat je een kijkje neemt op mijn website!</p>
-    </header>
+<header>
+    <div class="bovenkant">
+        <div class="logo">Mijn ICT-website</div>
 
-    <!-- Het menu bovenaan de pagina -->
-    <nav>
-        <a href="#home">Home</a>
+        <nav>
+            <a href="index.html" class="actief">Home</a>
+            <a href="kleurmodellen.html">Kleurmodellen</a>
+            <a href="binair-stelsel.html">Binair stelsel</a>
+            <a href="compressie.html">Compressie</a>
+            <a href="ai.html">AI</a>
+        </nav>
+    </div>
+</header>
 
-        <div class="dropdown">
-            <button class="dropdown-knop">Onderwerpen ▼</button>
+<div class="intro">
+    <div class="intro-inhoud">
+        <h1>Welkom op mijn website!</h1>
 
-            <div class="dropdown-inhoud">
-                <a href="kleurmodellen.html">Kleurmodellen</a>
-                <a href="binair-stelsel.html">Binair stelsel</a>
-                <a href="compressie.html">Compressie</a>
-                <a href="ai.html">AI</a>
+        <p>
+            Hoi! Welkom op mijn website over computers en ICT.
+            Hier vertel ik meer over onderwerpen zoals kleurmodellen,
+            het binaire stelsel, compressie en kunstmatige intelligentie.
+        </p>
+
+        <p>
+            Kijk gerust rond en ontdek wat je allemaal kunt leren!
+        </p>
+
+        <a class="intro-knop" href="#onderwerpen">
+            Bekijk de onderwerpen →
+        </a>
+    </div>
+</div>
+
+<main>
+
+    <section id="onderwerpen">
+        <h2>Wat kun je hier vinden?</h2>
+
+        <p class="uitleg">
+            Voor mijn ICT-opdracht heb ik verschillende pagina's gemaakt.
+            Op elke pagina leg ik een onderwerp uit met voorbeelden
+            en informatie die ik heb geleerd.
+        </p>
+
+        <div class="onderwerpen">
+
+            <div class="kaart">
+                <div class="icoon">🎨</div>
+                <h3>Kleurmodellen</h3>
+
+                <p>
+                    Hoe maken computers kleuren? Ontdek het verschil
+                    tussen RGB en CMYK en leer wat pixels zijn.
+                </p>
+
+                <a href="kleurmodellen.html">Bekijk kleurmodellen →</a>
             </div>
+
+            <div class="kaart">
+                <div class="icoon">💻</div>
+                <h3>Binair stelsel</h3>
+
+                <p>
+                    Computers werken met nullen en enen.
+                    Op deze pagina lees je hoe het binaire stelsel werkt.
+                </p>
+
+                <a href="binair-stelsel.html">Bekijk binair stelsel →</a>
+            </div>
+
+            <div class="kaart">
+                <div class="icoon">📦</div>
+                <h3>Compressie</h3>
+
+                <p>
+                    Bestanden kunnen kleiner worden gemaakt.
+                    Ontdek hoe compressie werkt en waarom het handig is.
+                </p>
+
+                <a href="compressie.html">Bekijk compressie →</a>
+            </div>
+
+            <div class="kaart">
+                <div class="icoon">🤖</div>
+                <h3>Kunstmatige intelligentie</h3>
+
+                <p>
+                    AI kom je steeds vaker tegen.
+                    Leer wat kunstmatige intelligentie is en waarvoor
+                    het wordt gebruikt.
+                </p>
+
+                <a href="ai.html">Bekijk AI →</a>
+            </div>
+
         </div>
+    </section>
 
-        <a href="#over-mij">Over mij</a>
-    </nav>
+    <section class="over-mij" id="over-mij">
+        <h2>Even voorstellen</h2>
 
-    <!-- De belangrijkste inhoud -->
-    <main id="home">
+        <p>
+            Hoi, ik ben Twan en ik ben 15 jaar oud.
+            Ik heb een broer van 17 jaar. Thuis hebben we ook
+            twee katten en twee konijnen.
+        </p>
 
-        <section>
-            <h2>Welkom!</h2>
+        <p>
+            Een van mijn hobby's is gamen. In mijn vrije tijd speel
+            ik graag games. Ik vind het ook leuk om met computers
+            bezig te zijn en nieuwe dingen te leren.
+        </p>
 
-            <p>
-                Hallo en welkom op mijn website. Ik heb deze website
-                gemaakt voor een opdracht over computers en ICT.
-                Op deze website kun je informatie vinden over
-                verschillende onderwerpen die met technologie te maken hebben.
-            </p>
+        <p>
+            Met deze website laat ik zien wat ik over verschillende
+            ICT-onderwerpen heb geleerd.
+        </p>
+    </section>
 
-            <p>
-                Via het dropdownmenu kun je naar de verschillende onderwerpen.
-                De pagina's maak ik later nog verder af.
-            </p>
-        </section>
+    <section>
+        <h2>Waarom heb ik deze website gemaakt?</h2>
 
-        <section>
-            <h2>Mijn onderwerpen</h2>
+        <p class="uitleg">
+            Ik heb deze website gemaakt voor een opdracht over computers
+            en ICT. Ik leer hiermee ook hoe HTML en CSS werken.
+            Met HTML maak je de inhoud van een website en met CSS
+            bepaal je hoe alles eruitziet.
+        </p>
 
-            <p>
-                Hieronder staan de onderwerpen die op mijn website
-                aan bod komen.
-            </p>
+        <p class="uitleg">
+            Ik hoop dat je mijn website leuk vindt en er iets van leert!
+        </p>
+    </section>
 
-            <div class="onderwerpen">
+</main>
 
-                <div class="kaart">
-                    <h3>Kleurmodellen</h3>
-                    <p>
-                        Hier komt informatie over verschillende kleuren
-                        en hoe computers deze weergeven.
-                    </p>
-                    <a href="kleurmodellen.html">Bekijk pagina</a>
-                </div>
-
-                <div class="kaart">
-                    <h3>Binair stelsel</h3>
-                    <p>
-                        Hier leg ik uit hoe computers met nullen
-                        en enen werken.
-                    </p>
-                    <a href="binair-stelsel.html">Bekijk pagina</a>
-                </div>
-
-                <div class="kaart">
-                    <h3>Compressie</h3>
-                    <p>
-                        Hier komt informatie over het kleiner maken
-                        van bestanden.
-                    </p>
-                    <a href="compressie.html">Bekijk pagina</a>
-                </div>
-
-                <div class="kaart">
-                    <h3>Kunstmatige intelligentie</h3>
-                    <p>
-                        Hier vertel ik meer over AI en hoe
-                        kunstmatige intelligentie werkt.
-                    </p>
-                    <a href="ai.html">Bekijk pagina</a>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="over-mij">
-            <h2>Over mij</h2>
-
-            <div class="over-mij">
-                <div class="over-mij-tekst">
-                    <p>
-                        Hoi, ik ben Twan en ik ben 15 jaar oud.
-                        Ik heb een broer van 17 jaar.
-                        We hebben thuis ook twee katten en twee konijnen.
-                    </p>
-
-                    <p>
-                        Een van mijn hobby's is gamen.
-                        In mijn vrije tijd speel ik graag games.
-                        Ik vind het ook leuk om met computers bezig te zijn
-                        en nieuwe dingen te leren.
-                    </p>
-
-                    <p>
-                        Op deze website laat ik zien wat ik over
-                        verschillende ICT-onderwerpen heb geleerd.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Waarom deze website?</h2>
-
-            <p>
-                Ik heb deze website gemaakt om meer te leren over
-                HTML en CSS. Met HTML maak je de inhoud van een website
-                en met CSS bepaal je hoe de website eruitziet.
-            </p>
-
-            <p>
-                Ik hoop dat je mijn website leuk vindt en dat je
-                iets nieuws leert over computers en technologie!
-            </p>
-        </section>
-
-    </main>
-
-    <!-- De onderkant van de website -->
-    <footer>
-        <p>Gemaakt door Twan | 2026</p>
-    </footer>
+<footer>
+    <p>Gemaakt door Twan | 2026</p>
+    <p>Mijn website over computers en ICT</p>
+</footer>
 
 </body>
 </html>
+```
