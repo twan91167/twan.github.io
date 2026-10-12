@@ -2,180 +2,205 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kleurmodellen - Mijn website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleurmodellen - Mijn website</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    color: #333;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
 
-header {
-    background: #263849;
-    color: white;
-    text-align: center;
-    padding: 30px;
-}
+        header {
+            background-color: #263849;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
 
-nav {
-    background: #34495e;
-    text-align: center;
-    padding: 15px;
-}
+        nav {
+            background-color: #34495e;
+            text-align: center;
+            padding: 15px;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 10px;
-    font-weight: bold;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
 
-nav a:hover {
-    color: #7ed6df;
-}
+        nav a:hover {
+            color: #7ed6df;
+        }
 
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 15px;
-}
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 15px;
+        }
 
-section {
-    background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px #ddd;
-}
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+        }
 
-h2 {
-    color: #263849;
-}
+        h2 {
+            color: #263849;
+        }
 
-.rgb {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    margin: 20px 0;
-}
+        .rgb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            margin: 20px 0;
+        }
 
-.cirkel {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
-    mix-blend-mode: multiply;
-}
+        .cirkel {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            mix-blend-mode: multiply;
+        }
 
-.rood {
-    background: red;
-    margin-right: -35px;
-}
+        .rood {
+            background-color: red;
+            margin-right: -35px;
+        }
 
-.groen {
-    background: limegreen;
-    margin-top: 65px;
-    margin-right: -35px;
-}
+        .groen {
+            background-color: limegreen;
+            margin-top: 65px;
+            margin-right: -35px;
+        }
 
-.blauw {
-    background: blue;
-    margin-top: 65px;
-}
+        .blauw {
+            background-color: blue;
+            margin-top: 65px;
+        }
 
-.cmyk {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
-}
+        .cmyk {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
 
-.kleur {
-    flex: 1;
-    min-width: 100px;
-    padding: 25px 5px;
-    text-align: center;
-    border-radius: 10px;
-    font-weight: bold;
-}
+        .kleur {
+            flex: 1;
+            min-width: 100px;
+            padding: 25px 5px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+        }
 
-.cyaan {
-    background: #00bcd4;
-    color: white;
-}
+        .cyaan {
+            background-color: #00bcd4;
+            color: white;
+        }
 
-.magenta {
-    background: #e6007e;
-    color: white;
-}
+        .magenta {
+            background-color: #e6007e;
+            color: white;
+        }
 
-.geel {
-    background: #ffdf00;
-    color: #333;
-}
+        .geel {
+            background-color: #ffdf00;
+            color: #333;
+        }
 
-.zwart {
-    background: #222;
-    color: white;
-}
+        .zwart {
+            background-color: #222;
+            color: white;
+        }
 
-.pixelplaatje {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    max-width: 320px;
-    margin: 20px auto;
-    border: 3px solid white;
-    box-shadow: 0 2px 8px #aaa;
-}
+        .info {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
 
-.pixel {
-    aspect-ratio: 1;
-}
+        .pixelplaatje {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            max-width: 320px;
+            margin: 20px auto;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px #aaa;
+        }
 
-.info {
-    background: #eaf2f8;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-}
+        .pixel {
+            aspect-ratio: 1;
+        }
 
-.terug {
-    display: inline-block;
-    background: #263849;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-}
+        .terug {
+            display: inline-block;
+            background-color: #263849;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
 
-footer {
-    background: #263849;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+        .terug:hover {
+            background-color: #34495e;
+        }
 
-@media (max-width: 600px) {
-    nav a {
-        display: inline-block;
-    }
+        .youtube {
+            display: inline-block;
+            background-color: #d93025;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
-    .cirkel {
-        width: 95px;
-        height: 95px;
-    }
-}
-</style>
+        .youtube:hover {
+            background-color: #a82018;
+        }
+
+        footer {
+            background-color: #263849;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .cirkel {
+                width: 95px;
+                height: 95px;
+            }
+
+            main {
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -195,145 +220,174 @@ footer {
 
 <main>
 
-<section>
-    <h2>🎨 Wat zijn kleurmodellen?</h2>
-    <p>
-        Een kleurmodel is een manier waarop kleuren worden gemaakt
-        en weergegeven. Computers, telefoons en televisies gebruiken
-        kleurmodellen om afbeeldingen in kleur te laten zien.
-    </p>
-    <p>
-        Twee bekende kleurmodellen zijn RGB en CMYK.
-    </p>
-</section>
+    <section>
+        <h2>🎨 Wat zijn kleurmodellen?</h2>
 
-<section>
-    <h2>🔴 Het RGB-kleurmodel</h2>
-    <p>
-        RGB staat voor rood, groen en blauw. Een beeldscherm gebruikt
-        deze drie kleuren om andere kleuren te maken.
-    </p>
-
-    <div class="rgb">
-        <div class="cirkel rood">R</div>
-        <div class="cirkel groen">G</div>
-        <div class="cirkel blauw">B</div>
-    </div>
-
-    <div class="info">
-        <strong>Wist je dat?</strong>
         <p>
-            Als rood, groen en blauw maximaal aanstaan, krijg je wit.
-            Als alle drie uitstaan, krijg je zwart.
+            Een kleurmodel is een manier waarop kleuren worden gemaakt
+            en weergegeven. Computers, telefoons, televisies en printers
+            gebruiken kleurmodellen om afbeeldingen in kleur te laten zien.
         </p>
-    </div>
-</section>
 
-<section>
-    <h2>🖨️ Het CMYK-kleurmodel</h2>
-    <p>
-        CMYK wordt vooral gebruikt bij printers. De letters staan voor
-        cyaan, magenta, geel en zwart. Met deze kleuren maakt een printer
-        veel verschillende kleuren op papier.
-    </p>
-
-    <div class="cmyk">
-        <div class="kleur cyaan">CYAAN</div>
-        <div class="kleur magenta">MAGENTA</div>
-        <div class="kleur geel">GEEL</div>
-        <div class="kleur zwart">ZWART</div>
-    </div>
-
-    <div class="info">
-        <strong>Het verschil:</strong>
         <p>
-            RGB is bedoeld voor beeldschermen. CMYK wordt vooral gebruikt
-            om met inkt op papier te printen.
+            Twee bekende kleurmodellen zijn RGB en CMYK.
+            Ze worden op verschillende manieren gebruikt.
         </p>
-    </div>
-</section>
+    </section>
 
-<section>
-    <h2>🔍 Wat zijn pixels?</h2>
-    <p>
-        Digitale foto's bestaan meestal uit heel veel kleine puntjes.
-        Deze puntjes heten pixels. Elke pixel heeft een eigen kleur.
-        Alle pixels samen vormen de afbeelding.
-    </p>
+    <section>
+        <h2>🔴 Het RGB-kleurmodel</h2>
 
-    <div class="pixelplaatje">
-        <div class="pixel" style="background:#183d20"></div>
-        <div class="pixel" style="background:#387c36"></div>
-        <div class="pixel" style="background:#70a43b"></div>
-        <div class="pixel" style="background:#f1d34a"></div>
-        <div class="pixel" style="background:#f9a52b"></div>
-        <div class="pixel" style="background:#d95c24"></div>
-        <div class="pixel" style="background:#823d23"></div>
-        <div class="pixel" style="background:#253b24"></div>
+        <p>
+            RGB staat voor rood, groen en blauw. Een beeldscherm gebruikt
+            deze drie kleuren om andere kleuren te maken. Door de hoeveelheid
+            van elke kleur te veranderen, ontstaan veel verschillende kleuren.
+        </p>
 
-        <div class="pixel" style="background:#28552b"></div>
-        <div class="pixel" style="background:#77a844"></div>
-        <div class="pixel" style="background:#e4d04b"></div>
-        <div class="pixel" style="background:#f9e28a"></div>
-        <div class="pixel" style="background:#f7b640"></div>
-        <div class="pixel" style="background:#d86b2a"></div>
-        <div class="pixel" style="background:#9a4b28"></div>
-        <div class="pixel" style="background:#3b612e"></div>
+        <div class="rgb">
+            <div class="cirkel rood">R</div>
+            <div class="cirkel groen">G</div>
+            <div class="cirkel blauw">B</div>
+        </div>
 
-        <div class="pixel" style="background:#387b35"></div>
-        <div class="pixel" style="background:#9ab94c"></div>
-        <div class="pixel" style="background:#e7df83"></div>
-        <div class="pixel" style="background:#f7e7b0"></div>
-        <div class="pixel" style="background:#f1c05d"></div>
-        <div class="pixel" style="background:#c77a35"></div>
-        <div class="pixel" style="background:#784329"></div>
-        <div class="pixel" style="background:#42652f"></div>
+        <div class="info">
+            <strong>Wist je dat?</strong>
+            <p>
+                Als rood, groen en blauw allemaal maximaal aanstaan,
+                krijg je wit. Als ze allemaal uitstaan, krijg je zwart.
+            </p>
+        </div>
 
-        <div class="pixel" style="background:#1c4828"></div>
-        <div class="pixel" style="background:#4d8138"></div>
-        <div class="pixel" style="background:#8eb247"></div>
-        <div class="pixel" style="background:#d9ce70"></div>
-        <div class="pixel" style="background:#e8b34c"></div>
-        <div class="pixel" style="background:#a95b2b"></div>
-        <div class="pixel" style="background:#68402a"></div>
-        <div class="pixel" style="background:#274627"></div>
+        <p>
+            RGB wordt bijvoorbeeld gebruikt op je telefoon, laptop,
+            computerscherm en televisie.
+        </p>
+    </section>
 
-        <div class="pixel" style="background:#24452b"></div>
-        <div class="pixel" style="background:#427a35"></div>
-        <div class="pixel" style="background:#6b9d3e"></div>
-        <div class="pixel" style="background:#9ab74b"></div>
-        <div class="pixel" style="background:#d1a448"></div>
-        <div class="pixel" style="background:#a86a34"></div>
-        <div class="pixel" style="background:#69452c"></div>
-        <div class="pixel" style="background:#263c25"></div>
+    <section>
+        <h2>🖨️ Het CMYK-kleurmodel</h2>
 
-        <div class="pixel" style="background:#183921"></div>
-        <div class="pixel" style="background:#31652f"></div>
-        <div class="pixel" style="background:#57883a"></div>
-        <div class="pixel" style="background:#789b40"></div>
-        <div class="pixel" style="background:#b3a14b"></div>
-        <div class="pixel" style="background:#8a5b32"></div>
-        <div class="pixel" style="background:#513927"></div>
-        <div class="pixel" style="background:#203720"></div>
-    </div>
+        <p>
+            CMYK wordt vooral gebruikt bij printers. De letters staan voor
+            cyaan, magenta, geel en zwart. Met inkt in deze kleuren kan een
+            printer veel verschillende kleuren op papier maken.
+        </p>
 
-    <p>
-        Als je een afbeelding sterk vergroot, kun je de losse pixels
-        zien. Meer pixels kunnen ervoor zorgen dat er meer details
-        zichtbaar zijn.
-    </p>
-</section>
+        <div class="cmyk">
+            <div class="kleur cyaan">CYAAN</div>
+            <div class="kleur magenta">MAGENTA</div>
+            <div class="kleur geel">GEEL</div>
+            <div class="kleur zwart">ZWART</div>
+        </div>
 
-<section>
-    <h2>📚 Wat heb ik geleerd?</h2>
-    <p>
-        Ik heb geleerd dat RGB wordt gebruikt voor beeldschermen en CMYK
-        vooral voor printers. Ook weet ik nu dat digitale foto's meestal
-        uit pixels bestaan.
-    </p>
-</section>
+        <div class="info">
+            <strong>Wat is het verschil?</strong>
+            <p>
+                RGB wordt gebruikt voor beeldschermen.
+                CMYK wordt vooral gebruikt om met inkt op papier te printen.
+            </p>
+        </div>
+    </section>
 
-<a class="terug" href="index.html">← Terug naar home</a>
+    <section>
+        <h2>🔍 Wat zijn pixels?</h2>
+
+        <p>
+            Digitale foto's bestaan meestal uit heel veel kleine puntjes.
+            Deze puntjes noemen we pixels. Elke pixel heeft een eigen kleur.
+            Alle pixels samen vormen de afbeelding.
+        </p>
+
+        <div class="pixelplaatje">
+            <div class="pixel" style="background:#183d20"></div>
+            <div class="pixel" style="background:#387c36"></div>
+            <div class="pixel" style="background:#70a43b"></div>
+            <div class="pixel" style="background:#f1d34a"></div>
+            <div class="pixel" style="background:#f9a52b"></div>
+            <div class="pixel" style="background:#d95c24"></div>
+            <div class="pixel" style="background:#823d23"></div>
+            <div class="pixel" style="background:#253b24"></div>
+
+            <div class="pixel" style="background:#28552b"></div>
+            <div class="pixel" style="background:#77a844"></div>
+            <div class="pixel" style="background:#e4d04b"></div>
+            <div class="pixel" style="background:#f9e28a"></div>
+            <div class="pixel" style="background:#f7b640"></div>
+            <div class="pixel" style="background:#d86b2a"></div>
+            <div class="pixel" style="background:#9a4b28"></div>
+            <div class="pixel" style="background:#3b612e"></div>
+
+            <div class="pixel" style="background:#387b35"></div>
+            <div class="pixel" style="background:#9ab94c"></div>
+            <div class="pixel" style="background:#e7df83"></div>
+            <div class="pixel" style="background:#f7e7b0"></div>
+            <div class="pixel" style="background:#f1c05d"></div>
+            <div class="pixel" style="background:#c77a35"></div>
+            <div class="pixel" style="background:#784329"></div>
+            <div class="pixel" style="background:#42652f"></div>
+
+            <div class="pixel" style="background:#1c4828"></div>
+            <div class="pixel" style="background:#4d8138"></div>
+            <div class="pixel" style="background:#8eb247"></div>
+            <div class="pixel" style="background:#d9ce70"></div>
+            <div class="pixel" style="background:#e8b34c"></div>
+            <div class="pixel" style="background:#a95b2b"></div>
+            <div class="pixel" style="background:#68402a"></div>
+            <div class="pixel" style="background:#274627"></div>
+
+            <div class="pixel" style="background:#24452b"></div>
+            <div class="pixel" style="background:#427a35"></div>
+            <div class="pixel" style="background:#6b9d3e"></div>
+            <div class="pixel" style="background:#9ab74b"></div>
+            <div class="pixel" style="background:#d1a448"></div>
+            <div class="pixel" style="background:#a86a34"></div>
+            <div class="pixel" style="background:#69452c"></div>
+            <div class="pixel" style="background:#263c25"></div>
+
+            <div class="pixel" style="background:#183921"></div>
+            <div class="pixel" style="background:#31652f"></div>
+            <div class="pixel" style="background:#57883a"></div>
+            <div class="pixel" style="background:#789b40"></div>
+            <div class="pixel" style="background:#b3a14b"></div>
+            <div class="pixel" style="background:#8a5b32"></div>
+            <div class="pixel" style="background:#513927"></div>
+            <div class="pixel" style="background:#203720"></div>
+        </div>
+
+        <p>
+            Als je een afbeelding heel ver vergroot, kun je de losse pixels
+            zien. Meer pixels kunnen ervoor zorgen dat er meer details
+            zichtbaar zijn.
+        </p>
+    </section>
+
+    <section>
+        <h2>🎬 Bekijk een video over kleurmodellen</h2>
+
+        <p>
+            Wil je meer leren over RGB en CMYK? Bekijk dan uitlegvideo's
+            op YouTube over kleurmodellen.
+        </p>
+
+        <a class="youtube"
+           href="https://www.youtube.com/results?search_query=kleurmodellen+RGB+CMYK+uitleg+Nederlands"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ Bekijk video's op YouTube
+        </a>
+    </section>
+
+    <section>
+        <h2>📚 Wat heb ik geleerd?</h2>
+
+        <p>
+            Ik heb geleerd dat RGB wordt gebruikt voor beeldschermen en
+            CMYK vooral voor printers. Ook weet ik nu dat digitale foto's
+            meestal uit pixels bestaan.
+        </p>
+    </section>
+
+    <a class="terug" href="index.html">← Terug naar home</a>
 
 </main>
 
