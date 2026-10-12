@@ -18,7 +18,12 @@
             background-color: #263849;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
         }
 
         nav {
@@ -30,7 +35,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 15px;
+            margin: 12px;
             font-weight: bold;
         }
 
@@ -39,7 +44,7 @@
         }
 
         main {
-            max-width: 900px;
+            max-width: 950px;
             margin: 30px auto;
             padding: 20px;
         }
@@ -48,42 +53,75 @@
             background-color: white;
             padding: 25px;
             margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #ddd;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #ddd;
         }
 
         h2 {
             color: #263849;
         }
 
+        .afbeelding {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 12px;
+        }
+
         .kleuren {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .kleur {
-            width: 100px;
-            height: 70px;
-            border-radius: 8px;
-            text-align: center;
-            padding-top: 35px;
-            box-sizing: border-box;
+            flex: 1;
+            min-width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
             font-weight: bold;
         }
 
         .rood {
-            background-color: red;
+            background-color: #ff3333;
         }
 
         .groen {
-            background-color: green;
+            background-color: #22aa55;
         }
 
         .blauw {
-            background-color: blue;
+            background-color: #3366ff;
+        }
+
+        .cyaan {
+            background-color: #00bcd4;
+        }
+
+        .magenta {
+            background-color: #d63384;
+        }
+
+        .geel {
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        .zwart {
+            background-color: #222;
+        }
+
+        .info {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
         }
 
         .terug {
@@ -106,6 +144,21 @@
             padding: 20px;
             margin-top: 30px;
         }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            main {
+                padding: 12px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 
@@ -113,7 +166,7 @@
 
     <header>
         <h1>Kleurmodellen</h1>
-        <p>Leer hoe kleuren werken op een computer!</p>
+        <p>Ontdek hoe computers kleuren maken!</p>
     </header>
 
     <nav>
@@ -127,20 +180,32 @@
     <main>
 
         <section>
-            <h2>Wat zijn kleurmodellen?</h2>
+            <h2>🎨 Wat zijn kleurmodellen?</h2>
+
             <p>
-                Een kleurmodel is een manier waarop een computer kleuren kan maken
-                en weergeven. Computers gebruiken verschillende kleurmodellen
-                voor bijvoorbeeld foto's, video's en games.
+                Een kleurmodel is een manier waarop kleuren worden gemaakt
+                en weergegeven. Computers, telefoons, televisies en printers
+                gebruiken kleurmodellen om afbeeldingen in kleur te laten zien.
+            </p>
+
+            <img class="afbeelding"
+                 src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=80"
+                 alt="Kleurrijke verf en schildermaterialen">
+
+            <p>
+                Er bestaan verschillende kleurmodellen. Twee bekende voorbeelden
+                zijn RGB en CMYK.
             </p>
         </section>
 
         <section>
-            <h2>Het RGB-kleurmodel</h2>
+            <h2>🔴 Het RGB-kleurmodel</h2>
+
             <p>
                 RGB staat voor rood, groen en blauw. Een beeldscherm gebruikt
-                deze drie kleuren om heel veel andere kleuren te maken.
-                Door de kleuren te mengen, ontstaan er nieuwe kleuren.
+                deze drie kleuren om andere kleuren te maken. Door de hoeveelheid
+                rood, groen en blauw te veranderen, ontstaan er veel verschillende
+                kleuren.
             </p>
 
             <div class="kleuren">
@@ -149,37 +214,81 @@
                 <div class="kleur blauw">Blauw</div>
             </div>
 
+            <div class="info">
+                <strong>Wist je dat?</strong>
+                <p>
+                    Als rood, groen en blauw allemaal maximaal aanstaan,
+                    krijg je wit. Als alle drie uitstaan, krijg je zwart.
+                </p>
+            </div>
+
+            <img class="afbeelding"
+                 src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1000&q=80"
+                 alt="Computerscherm op een bureau">
+
             <p>
-                Als rood, groen en blauw allemaal op de hoogste waarde staan,
-                krijg je wit. Als ze allemaal uitstaan, krijg je zwart.
+                RGB wordt bijvoorbeeld gebruikt op je telefoon, laptop,
+                computerscherm en televisie.
             </p>
         </section>
 
         <section>
-            <h2>Het CMYK-kleurmodel</h2>
+            <h2>🖨️ Het CMYK-kleurmodel</h2>
+
             <p>
-                CMYK wordt vooral gebruikt bij het afdrukken met een printer.
-                De letters staan voor cyaan, magenta, geel en zwart.
-                Met deze kleuren kan een printer veel verschillende kleuren
-                op papier maken.
+                CMYK wordt vooral gebruikt bij printers. De letters staan voor
+                cyaan, magenta, geel en zwart. Met inkt in deze kleuren kan
+                een printer veel verschillende kleuren op papier maken.
+            </p>
+
+            <div class="kleuren">
+                <div class="kleur cyaan">Cyaan</div>
+                <div class="kleur magenta">Magenta</div>
+                <div class="kleur geel">Geel</div>
+                <div class="kleur zwart">Zwart</div>
+            </div>
+
+            <img class="afbeelding"
+                 src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=1000&q=80"
+                 alt="Printer voor het afdrukken van documenten">
+
+            <div class="info">
+                <strong>Het verschil:</strong>
+                <p>
+                    RGB is bedoeld voor beeldschermen. CMYK is vooral bedoeld
+                    om kleuren met inkt op papier af te drukken.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔍 Wat zijn pixels?</h2>
+
+            <p>
+                Een digitale foto bestaat meestal uit heel veel kleine puntjes.
+                Deze puntjes noemen we pixels. Elke pixel heeft een eigen kleur.
+                Alle pixels samen vormen de afbeelding.
+            </p>
+
+            <img class="afbeelding"
+                 src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80"
+                 alt="Camera waarmee digitale foto's worden gemaakt">
+
+            <p>
+                Hoe meer pixels een afbeelding heeft, hoe meer details er
+                vaak zichtbaar kunnen zijn. Als je een afbeelding heel ver
+                vergroot, kun je de losse pixels soms zien.
             </p>
         </section>
 
         <section>
-            <h2>Waar worden kleurmodellen gebruikt?</h2>
-            <p>
-                Kleurmodellen worden op veel plekken gebruikt. Denk bijvoorbeeld
-                aan je computerscherm, televisie, telefoon, printer en games.
-                Zonder kleurmodellen zouden digitale afbeeldingen er heel anders uitzien.
-            </p>
-        </section>
+            <h2>📚 Wat heb ik geleerd?</h2>
 
-        <section>
-            <h2>Wat heb ik geleerd?</h2>
             <p>
-                Ik heb geleerd dat computers kleurmodellen gebruiken om kleuren
-                weer te geven. RGB wordt gebruikt voor beeldschermen en CMYK
-                vooral voor printen.
+                Ik heb geleerd dat kleurmodellen bepalen hoe kleuren worden
+                weergegeven. RGB wordt gebruikt voor beeldschermen en CMYK
+                vooral voor printers. Ik weet nu ook dat digitale foto's
+                meestal uit pixels bestaan.
             </p>
         </section>
 
