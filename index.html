@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Home - Mijn website</title>
+    <title>Home - Mijn ICT-website</title>
 
     <style>
         * {
@@ -17,25 +16,23 @@
             font-family: Arial, sans-serif;
             background-color: #f2f5f8;
             color: #333;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Titel bovenaan */
         header {
             background-color: #183153;
             color: white;
             text-align: center;
-            padding: 45px 20px;
+            padding: 40px 20px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 38px;
+            font-size: 36px;
         }
 
         header p {
             margin-bottom: 0;
-            font-size: 18px;
         }
 
         /* Navigatiemenu */
@@ -66,7 +63,6 @@
             background-color: #3d638c;
         }
 
-        /* Uitklapmenu */
         .dropdown {
             position: relative;
         }
@@ -98,29 +94,30 @@
             display: block;
         }
 
-        /* Hoofdinhoud */
+        /* Pagina-inhoud */
         main {
-            max-width: 950px;
+            max-width: 1050px;
             margin: 35px auto;
             padding: 0 20px;
         }
 
-        /* Introductie */
-        .intro {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 6px solid #477eae;
-            margin-bottom: 25px;
+        section {
+            margin-bottom: 35px;
         }
 
         h2 {
             color: #183153;
-            margin-top: 0;
         }
 
-        /* Persoonlijke informatie */
-        .informatie {
+        .intro {
+            background-color: white;
+            padding: 25px;
+            border-left: 5px solid #477eae;
+            border-radius: 8px;
+        }
+
+        /* Onderwerpen */
+        .onderwerpen {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
@@ -128,9 +125,9 @@
 
         .kaart {
             background-color: white;
-            padding: 23px;
-            border-radius: 10px;
+            padding: 24px;
             border: 1px solid #dce2e8;
+            border-radius: 8px;
         }
 
         .kaart h3 {
@@ -138,30 +135,41 @@
             margin-top: 0;
         }
 
-        /* Afsluiting */
-        .afsluiting {
-            margin-top: 25px;
-            padding: 25px;
+        .kaart a {
+            display: inline-block;
+            margin-top: 8px;
+            color: #245f96;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .kaart a:hover {
+            text-decoration: underline;
+        }
+
+        /* Over mij */
+        .over-mij {
             background-color: #e3edf7;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 8px;
         }
 
         footer {
-            margin-top: 40px;
-            padding: 18px;
             background-color: #183153;
             color: white;
             text-align: center;
+            padding: 18px;
+            margin-top: 40px;
         }
 
         footer p {
             margin: 0;
         }
 
-        /* Mobiele weergave */
+        /* Mobiele versie */
         @media (max-width: 600px) {
             header h1 {
-                font-size: 30px;
+                font-size: 29px;
             }
 
             nav {
@@ -180,7 +188,7 @@
                 box-shadow: none;
             }
 
-            .informatie {
+            .onderwerpen {
                 grid-template-columns: 1fr;
             }
         }
@@ -190,8 +198,8 @@
 <body>
 
     <header>
-        <h1>Welkom op mijn website!</h1>
-        <p>Mijn eerste website gemaakt voor ICT</p>
+        <h1>Mijn ICT-website</h1>
+        <p>Welkom! Hier vind je informatie over verschillende ICT-onderwerpen.</p>
     </header>
 
     <nav>
@@ -216,78 +224,92 @@
     <main>
 
         <section class="intro">
-            <h2>Even voorstellen!</h2>
+            <h2>Welkom op mijn website!</h2>
 
             <p>
-                Hoi! Ik ben Twan en ik ben 15 jaar oud.
-                Dit is mijn eerste website die ik zelf maak.
-                Ik heb deze website gemaakt voor een opdracht bij ICT.
-                Ik vind het leuk om te leren hoe je een website bouwt
-                en hoe je informatie op een duidelijke manier kunt laten zien.
+                Hoi, ik ben Twan en ik ben 15 jaar oud.
+                Dit is mijn eerste website en ik heb deze gemaakt
+                voor een opdracht bij ICT.
             </p>
 
             <p>
-                Op de rest van mijn website vertel ik meer over verschillende
-                onderwerpen die met computers en technologie te maken hebben.
+                Op deze website behandel ik verschillende onderwerpen
+                die te maken hebben met computers en technologie.
+                Hieronder kun je zien welke onderwerpen er zijn.
+                Klik op 'Lees meer' om naar de bijbehorende pagina te gaan.
             </p>
         </section>
 
-        <section id="over-mij">
-            <h2>Een beetje over mij</h2>
+        <section id="onderwerpen">
+            <h2>Alle ICT-onderwerpen</h2>
 
-            <div class="informatie">
+            <div class="onderwerpen">
 
                 <article class="kaart">
-                    <h3>Mijn familie</h3>
+                    <h3>Kleurmodellen</h3>
 
                     <p>
-                        Ik heb een broer die Noah heet.
-                        Thuis hebben we ook twee katten en konijnen.
-                        Het is gezellig om dieren om me heen te hebben.
+                        Kleurmodellen worden gebruikt om kleuren weer te geven.
+                        RGB wordt bijvoorbeeld gebruikt op beeldschermen,
+                        terwijl CMYK vooral wordt gebruikt bij het afdrukken.
                     </p>
+
+                    <a href="kleurmodellen.html">Lees meer over kleurmodellen →</a>
                 </article>
 
                 <article class="kaart">
-                    <h3>Mijn hobby's</h3>
+                    <h3>Het binaire stelsel</h3>
 
                     <p>
-                        Een van mijn hobby's is sporten.
-                        Ik vind het fijn om actief bezig te zijn
-                        en lekker in beweging te blijven.
+                        Computers gebruiken nullen en enen om informatie
+                        op te slaan en te verwerken. Dit noemen we het
+                        binaire stelsel.
                     </p>
+
+                    <a href="binair-stelsel.html">Lees meer over het binaire stelsel →</a>
                 </article>
 
                 <article class="kaart">
-                    <h3>Mijn eerste website</h3>
+                    <h3>Compressie</h3>
 
                     <p>
-                        Omdat dit mijn eerste website is, leer ik stap
-                        voor stap hoe HTML en CSS werken.
-                        Daarmee kan ik zelf pagina's maken en het ontwerp
-                        aanpassen.
+                        Met compressie kun je bestanden kleiner maken.
+                        Daardoor nemen ze minder opslagruimte in en kunnen
+                        ze makkelijker worden verstuurd.
                     </p>
+
+                    <a href="compressie.html">Lees meer over compressie →</a>
                 </article>
 
                 <article class="kaart">
-                    <h3>Wat vind je op deze website?</h3>
+                    <h3>Kunstmatige intelligentie</h3>
 
                     <p>
-                        Je kunt hier informatie vinden over kleurmodellen,
-                        het binaire stelsel, compressie en kunstmatige
-                        intelligentie.
+                        Kunstmatige intelligentie, ook wel AI genoemd,
+                        maakt het mogelijk dat computers taken uitvoeren
+                        waarvoor normaal gesproken menselijke intelligentie
+                        nodig is.
                     </p>
+
+                    <a href="ai.html">Lees meer over kunstmatige intelligentie →</a>
                 </article>
 
             </div>
         </section>
 
-        <section class="afsluiting">
-            <h2>Veel plezier met kijken!</h2>
+        <section class="over-mij" id="over-mij">
+            <h2>Over mij</h2>
 
             <p>
-                Dit was een korte introductie over mij.
-                Neem gerust een kijkje bij de verschillende onderwerpen
-                op mijn website. Ik hoop dat alles duidelijk is!
+                Ik ben Twan, ik ben 15 jaar en ik heb een broer die Noah heet.
+                We hebben thuis twee katten en konijnen.
+                Mijn hobby is sporten.
+            </p>
+
+            <p>
+                Omdat dit mijn eerste website is, leer ik hoe ik met HTML
+                en CSS een website kan maken. Ik vind het leuk om te ontdekken
+                hoe je informatie op een duidelijke manier online kunt zetten.
             </p>
         </section>
 
