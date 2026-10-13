@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -7,18 +7,23 @@
     <title>Compressie - Mijn website</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f6f8;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
             background-color: #263849;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 30px 20px;
         }
 
         nav {
@@ -30,8 +35,9 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 15px;
+            margin: 10px 15px;
             font-weight: bold;
+            display: inline-block;
         }
 
         nav a:hover {
@@ -77,6 +83,20 @@
             background-color: #34495e;
         }
 
+        .youtube-knop {
+            display: inline-block;
+            background-color: #c4302b;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+
+        .youtube-knop:hover {
+            background-color: #a5221e;
+        }
+
         footer {
             background-color: #263849;
             color: white;
@@ -87,7 +107,6 @@
 
         @media (max-width: 600px) {
             nav a {
-                display: inline-block;
                 margin: 8px;
             }
 
@@ -117,6 +136,7 @@
 
         <section>
             <h2>Wat is compressie?</h2>
+
             <p>
                 Compressie betekent dat je een bestand kleiner maakt.
                 Hierdoor neemt het minder opslagruimte in en kun je het
@@ -134,51 +154,60 @@
 
             <div class="voorbeeld">
                 <h3>Lossless compressie</h3>
+
                 <p>
                     Bij lossless compressie gaat er geen informatie verloren.
-                    Na het uitpakken kun je het originele bestand precies terugkrijgen.
-                    Dit wordt bijvoorbeeld gebruikt bij ZIP-bestanden.
+                    Na het uitpakken kun je het originele bestand precies
+                    terugkrijgen. Dit wordt bijvoorbeeld gebruikt bij
+                    ZIP-bestanden.
                 </p>
             </div>
 
             <div class="voorbeeld">
                 <h3>Lossy compressie</h3>
+
                 <p>
-                    Bij lossy compressie wordt een deel van de informatie verwijderd
-                    om het bestand kleiner te maken. Je merkt het kwaliteitsverlies
-                    soms bijna niet. Dit wordt bijvoorbeeld gebruikt bij JPEG-foto's
-                    en sommige video's.
+                    Bij lossy compressie wordt een deel van de informatie
+                    verwijderd om het bestand kleiner te maken. Je merkt
+                    het kwaliteitsverlies soms bijna niet. Dit wordt
+                    bijvoorbeeld gebruikt bij JPEG-foto's en sommige video's.
                 </p>
             </div>
         </section>
 
         <section>
             <h2>Wat is een bitmap?</h2>
+
             <p>
                 Een bitmapafbeelding bestaat uit heel veel kleine puntjes.
-                Die puntjes noemen we pixels. Elke pixel heeft een eigen kleur.
-                Samen vormen de pixels de afbeelding.
+                Die puntjes noemen we pixels. Elke pixel heeft een eigen
+                kleur. Samen vormen de pixels de afbeelding.
             </p>
 
             <p>
-                Foto's die je met een telefoon maakt, zijn meestal bitmapafbeeldingen.
-                Als je zo'n afbeelding heel ver vergroot, kun je de losse pixels zien.
+                Foto's die je met een telefoon maakt, zijn meestal
+                bitmapafbeeldingen. Als je zo'n afbeelding heel ver vergroot,
+                kun je de losse pixels zien.
             </p>
 
             <div class="voorbeeld">
                 <h3>Voordelen en nadelen</h3>
+
                 <p>
-                    Voordeel: bitmap is geschikt voor foto's met veel details en kleuren.
+                    Voordeel: bitmap is geschikt voor foto's met veel
+                    details en kleuren.
                 </p>
+
                 <p>
-                    Nadeel: als je een bitmap te ver vergroot, wordt de afbeelding
-                    vaak blokkerig of onscherp.
+                    Nadeel: als je een bitmap te ver vergroot, wordt de
+                    afbeelding vaak blokkerig of onscherp.
                 </p>
             </div>
         </section>
 
         <section>
             <h2>Wat is een vectorafbeelding?</h2>
+
             <p>
                 Een vectorafbeelding bestaat niet uit pixels, maar uit vormen,
                 lijnen en punten die met wiskundige informatie worden beschreven.
@@ -186,20 +215,22 @@
             </p>
 
             <p>
-                Logo's en eenvoudige tekeningen worden vaak als vector opgeslagen.
-                Je kunt een vectorafbeelding groter of kleiner maken zonder dat
-                de randen blokkerig worden.
+                Logo's en eenvoudige tekeningen worden vaak als vector
+                opgeslagen. Je kunt een vectorafbeelding groter of kleiner
+                maken zonder dat de randen blokkerig worden.
             </p>
 
             <div class="voorbeeld">
                 <h3>Voordelen en nadelen</h3>
+
                 <p>
-                    Voordeel: een vectorafbeelding blijft scherp, ook als je hem
-                    heel groot maakt.
+                    Voordeel: een vectorafbeelding blijft scherp, ook als
+                    je hem heel groot maakt.
                 </p>
+
                 <p>
-                    Nadeel: vector is minder geschikt voor gewone foto's met
-                    heel veel kleine details en kleurverlopen.
+                    Nadeel: vector is minder geschikt voor gewone foto's
+                    met heel veel kleine details en kleurverlopen.
                 </p>
             </div>
         </section>
@@ -208,9 +239,9 @@
             <h2>Bitmap en vector vergelijken</h2>
 
             <p>
-                Het belangrijkste verschil is de manier waarop de afbeelding wordt
-                opgebouwd. Een bitmap gebruikt pixels en een vector gebruikt
-                berekende vormen en lijnen.
+                Het belangrijkste verschil is de manier waarop de afbeelding
+                wordt opgebouwd. Een bitmap gebruikt pixels en een vector
+                gebruikt berekende vormen en lijnen.
             </p>
 
             <div class="voorbeeld">
@@ -225,13 +256,31 @@
 
         <section>
             <h2>Wat heb ik geleerd?</h2>
+
             <p>
                 Ik heb geleerd dat compressie bestanden kleiner maakt.
-                Bij lossless compressie gaat geen informatie verloren, terwijl
-                bij lossy compressie een deel van de informatie wordt verwijderd.
-                Ik weet nu ook dat bitmapafbeeldingen uit pixels bestaan en
-                vectorafbeeldingen uit vormen en lijnen.
+                Bij lossless compressie gaat geen informatie verloren,
+                terwijl bij lossy compressie een deel van de informatie
+                wordt verwijderd. Ik weet nu ook dat bitmapafbeeldingen
+                uit pixels bestaan en vectorafbeeldingen uit vormen en lijnen.
             </p>
+        </section>
+
+        <section>
+            <h2>Video over compressie</h2>
+
+            <p>
+                Wil je liever naar een uitleg kijken? Via de link hieronder
+                kun je Nederlandstalige YouTube-video's vinden waarin
+                compressie wordt uitgelegd.
+            </p>
+
+            <a class="youtube-knop"
+               href="https://www.youtube.com/results?search_query=compressie+uitleg+Nederlands"
+               target="_blank"
+               rel="noopener noreferrer">
+                Bekijk uitleg over compressie op YouTube
+            </a>
         </section>
 
         <a class="knop" href="index.html">← Terug naar home</a>
@@ -244,3 +293,4 @@
 
 </body>
 </html>
+```
