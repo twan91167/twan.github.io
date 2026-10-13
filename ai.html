@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -7,18 +7,27 @@
     <title>AI - Mijn website</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f6f8;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
             background-color: #263849;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
         }
 
         nav {
@@ -28,9 +37,10 @@
         }
 
         nav a {
+            display: inline-block;
             color: white;
             text-decoration: none;
-            margin: 15px;
+            margin: 8px 12px;
             font-weight: bold;
         }
 
@@ -77,6 +87,21 @@
             background-color: #34495e;
         }
 
+        .youtube-knop {
+            display: inline-block;
+            background-color: #c4302b;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .youtube-knop:hover {
+            background-color: #a5221e;
+        }
+
         footer {
             background-color: #263849;
             color: white;
@@ -87,12 +112,15 @@
 
         @media (max-width: 600px) {
             nav a {
-                display: inline-block;
                 margin: 8px;
             }
 
             main {
                 padding: 12px;
+            }
+
+            section {
+                padding: 18px;
             }
         }
     </style>
@@ -117,6 +145,7 @@
 
         <section>
             <h2>Wat is AI?</h2>
+
             <p>
                 AI betekent Artificial Intelligence. In het Nederlands noemen
                 we dit kunstmatige intelligentie. AI is technologie waarmee
@@ -132,6 +161,7 @@
 
         <section>
             <h2>Waar gebruik ik AI voor?</h2>
+
             <p>
                 Ik gebruik AI vooral voor school. Het helpt mij om informatie
                 beter te begrijpen en om mijn huiswerk te maken.
@@ -139,6 +169,7 @@
 
             <div class="voorbeeld">
                 <h3>Samenvattingen maken</h3>
+
                 <p>
                     Als ik veel tekst moet leren, kan ik AI vragen om een
                     samenvatting te maken. Zo kan ik de belangrijkste informatie
@@ -148,6 +179,7 @@
 
             <div class="voorbeeld">
                 <h3>Uitleg over mijn huiswerk</h3>
+
                 <p>
                     Als ik een opdracht niet begrijp, kan ik AI vragen om het
                     stap voor stap uit te leggen. Daardoor kan ik beter begrijpen
@@ -158,6 +190,7 @@
 
         <section>
             <h2>Kun je leren van AI?</h2>
+
             <p>
                 Ja, je kunt zeker van AI leren. Het ligt er wel aan hoe je
                 de vragen stelt en wat je met de antwoorden doet.
@@ -171,13 +204,13 @@
 
             <div class="voorbeeld">
                 <h3>Een goede vraag stellen</h3>
+
                 <p>
                     In plaats van: "Geef mij het antwoord op deze som."
+                    kun je beter vragen:
+                    "Leg stap voor stap uit hoe ik deze som zelf kan oplossen."
                 </p>
-                <p>
-                    Kun je beter vragen: "Leg stap voor stap uit hoe ik deze som
-                    zelf kan oplossen."
-                </p>
+
                 <p>
                     Op die manier gebruik je AI als hulpmiddel om iets te leren
                     in plaats van alleen antwoorden over te nemen.
@@ -187,6 +220,7 @@
 
         <section>
             <h2>AI op mijn iPhone 13</h2>
+
             <p>
                 Ik heb een iPhone 13 en gebruik AI op een vergelijkbare manier
                 als op een computer. Op mijn telefoon kan ik AI gebruiken om
@@ -202,6 +236,7 @@
 
             <div class="voorbeeld">
                 <h3>AI als hulpmiddel</h3>
+
                 <p>
                     Mijn iPhone 13 is een apparaat waarop ik AI-diensten kan
                     gebruiken, bijvoorbeeld via een app of website.
@@ -212,6 +247,7 @@
 
         <section>
             <h2>Waar moet je op letten?</h2>
+
             <p>
                 AI is handig, maar de antwoorden zijn niet altijd goed.
                 Soms maakt AI fouten of geeft het informatie die niet klopt.
@@ -220,13 +256,14 @@
 
             <p>
                 Je moet ook voorzichtig zijn met persoonlijke informatie
-                die je met AI deelt. En bij schoolwerk is het belangrijk dat
+                die je met AI deelt. Bij schoolwerk is het belangrijk dat
                 je zelf blijft nadenken en begrijpt wat je inlevert.
             </p>
         </section>
 
         <section>
             <h2>Wat heb ik geleerd?</h2>
+
             <p>
                 Ik heb geleerd dat AI een handig hulpmiddel kan zijn voor school.
                 Ik gebruik het om samenvattingen te maken en uitleg te krijgen
@@ -241,6 +278,23 @@
             </p>
         </section>
 
+        <section>
+            <h2>Video over kunstmatige intelligentie</h2>
+
+            <p>
+                Wil je meer leren over AI? Via de link hieronder kun je
+                Nederlandstalige YouTube-video's bekijken die uitleggen
+                wat kunstmatige intelligentie is en hoe het werkt.
+            </p>
+
+            <a class="youtube-knop"
+               href="https://www.youtube.com/results?search_query=kunstmatige+intelligentie+AI+uitleg+Nederlands"
+               target="_blank"
+               rel="noopener noreferrer">
+                Bekijk uitlegvideo's over AI op YouTube
+            </a>
+        </section>
+
         <a class="knop" href="index.html">← Terug naar home</a>
 
     </main>
@@ -251,3 +305,4 @@
 
 </body>
 </html>
+```
