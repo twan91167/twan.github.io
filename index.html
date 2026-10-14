@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Mijn ICT-website</title>
+    <title>Mijn informaticawebsite</title>
 
     <style>
         * {
@@ -14,16 +14,16 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f2f5f8;
-            color: #333;
+            background-color: #f0f4f8;
+            color: #222;
             line-height: 1.6;
         }
 
         header {
-            background-color: #183153;
+            background-color: #142b4a;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
 
         header h1 {
@@ -35,32 +35,30 @@
             margin-bottom: 0;
         }
 
-        /* Navigatiemenu */
         nav {
-            background-color: #24476b;
+            background-color: #203f68;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
         }
 
-        nav > a,
+        nav a,
         .dropdown-knop {
-            display: block;
-            padding: 13px 20px;
             color: white;
+            padding: 14px 20px;
             text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
+            display: block;
             border: none;
             background: none;
+            font-size: 16px;
             cursor: pointer;
+            font-family: Arial, sans-serif;
         }
 
-        nav > a:hover,
-        .dropdown:hover .dropdown-knop,
-        .dropdown:focus-within .dropdown-knop {
-            background-color: #3d638c;
+        nav a:hover,
+        .dropdown:hover .dropdown-knop {
+            background-color: #315985;
         }
 
         .dropdown {
@@ -70,23 +68,19 @@
         .dropdown-inhoud {
             display: none;
             position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 220px;
             background-color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
+            min-width: 190px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
         .dropdown-inhoud a {
-            display: block;
-            padding: 11px 16px;
-            color: #183153;
-            text-decoration: none;
+            color: #222;
+            padding: 12px 16px;
         }
 
         .dropdown-inhoud a:hover {
-            background-color: #e3edf7;
+            background-color: #e4edf7;
         }
 
         .dropdown:hover .dropdown-inhoud,
@@ -94,51 +88,40 @@
             display: block;
         }
 
-        /* Pagina-inhoud */
         main {
-            max-width: 1050px;
-            margin: 35px auto;
+            max-width: 1000px;
+            margin: 30px auto;
             padding: 0 20px;
-        }
-
-        section {
-            margin-bottom: 35px;
-        }
-
-        h2 {
-            color: #183153;
         }
 
         .intro {
             background-color: white;
             padding: 25px;
-            border-left: 5px solid #477eae;
-            border-radius: 8px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
-        /* Onderwerpen */
-        .onderwerpen {
+        .kaarten {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
 
         .kaart {
             background-color: white;
-            padding: 24px;
-            border: 1px solid #dce2e8;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .kaart h3 {
-            color: #24476b;
+            color: #203f68;
             margin-top: 0;
         }
 
         .kaart a {
-            display: inline-block;
-            margin-top: 8px;
-            color: #245f96;
+            color: #174f91;
             font-weight: bold;
             text-decoration: none;
         }
@@ -147,50 +130,20 @@
             text-decoration: underline;
         }
 
-        /* Over mij */
-        .over-mij {
-            background-color: #e3edf7;
+        #over-mij {
+            background-color: white;
             padding: 25px;
-            border-radius: 8px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         footer {
-            background-color: #183153;
+            background-color: #142b4a;
             color: white;
             text-align: center;
-            padding: 18px;
+            padding: 15px;
             margin-top: 40px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        /* Mobiele versie */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 29px;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            nav > a,
-            .dropdown-knop {
-                width: 100%;
-                text-align: left;
-            }
-
-            .dropdown-inhoud {
-                position: static;
-                box-shadow: none;
-            }
-
-            .onderwerpen {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -198,23 +151,21 @@
 <body>
 
     <header>
-        <h1>Mijn ICT-website</h1>
-        <p>Welkom! Hier vind je informatie over verschillende ICT-onderwerpen.</p>
+        <h1>Mijn informaticawebsite</h1>
+        <p>Leer meer over computers, data en kunstmatige intelligentie</p>
     </header>
 
     <nav>
         <a href="index.html">Home</a>
 
         <div class="dropdown">
-            <button class="dropdown-knop" aria-haspopup="true">
-                Onderwerpen &#9662;
-            </button>
+            <button class="dropdown-knop">Onderwerpen ▼</button>
 
             <div class="dropdown-inhoud">
                 <a href="kleurmodellen.html">Kleurmodellen</a>
                 <a href="binair-stelsel.html">Binair stelsel</a>
                 <a href="compressie.html">Compressie</a>
-                <a href="ai.html">Kunstmatige intelligentie</a>
+                <a href="ai.html">Kunstmatige intelligentie (AI)</a>
             </div>
         </div>
 
@@ -224,92 +175,95 @@
     <main>
 
         <section class="intro">
-            <h2>Welkom op mijn website!</h2>
+            <h2>Welkom op mijn informaticawebsite!</h2>
 
             <p>
-                Hoi, ik ben Twan en ik ben 15 jaar oud.
-                Dit is mijn eerste website en ik heb deze gemaakt
-                voor een opdracht bij ICT.
+                Welkom op mijn website over informatica. Op deze website
+                vertel ik over verschillende onderwerpen die te maken
+                hebben met computers en digitale technologie.
             </p>
 
             <p>
-                Op deze website behandel ik verschillende onderwerpen
-                die te maken hebben met computers en technologie.
-                Hieronder kun je zien welke onderwerpen er zijn.
-                Klik op 'Lees meer' om naar de bijbehorende pagina te gaan.
+                Je kunt hier informatie vinden over kleurmodellen,
+                het binaire stelsel, compressie en kunstmatige
+                intelligentie. Klik op een onderwerp om er meer over
+                te leren.
             </p>
         </section>
 
-        <section id="onderwerpen">
-            <h2>Alle ICT-onderwerpen</h2>
+        <h2>Ontdek de onderwerpen</h2>
 
-            <div class="onderwerpen">
+        <section class="kaarten">
 
-                <article class="kaart">
-                    <h3>Kleurmodellen</h3>
+            <article class="kaart">
+                <h3>Kleurmodellen</h3>
 
-                    <p>
-                        Kleurmodellen worden gebruikt om kleuren weer te geven.
-                        RGB wordt bijvoorbeeld gebruikt op beeldschermen,
-                        terwijl CMYK vooral wordt gebruikt bij het afdrukken.
-                    </p>
+                <p>
+                    Leer hoe kleuren digitaal worden weergegeven met
+                    kleurmodellen zoals RGB en CMYK.
+                </p>
 
-                    <a href="kleurmodellen.html">Lees meer over kleurmodellen →</a>
-                </article>
+                <a href="kleurmodellen.html">Lees meer over kleurmodellen →</a>
+            </article>
 
-                <article class="kaart">
-                    <h3>Het binaire stelsel</h3>
+            <article class="kaart">
+                <h3>Binair stelsel</h3>
 
-                    <p>
-                        Computers gebruiken nullen en enen om informatie
-                        op te slaan en te verwerken. Dit noemen we het
-                        binaire stelsel.
-                    </p>
+                <p>
+                    Ontdek hoe computers informatie opslaan en verwerken
+                    met de cijfers 0 en 1.
+                </p>
 
-                    <a href="binair-stelsel.html">Lees meer over het binaire stelsel →</a>
-                </article>
+                <a href="binair-stelsel.html">Lees meer over het binaire stelsel →</a>
+            </article>
 
-                <article class="kaart">
-                    <h3>Compressie</h3>
+            <article class="kaart">
+                <h3>Compressie</h3>
 
-                    <p>
-                        Met compressie kun je bestanden kleiner maken.
-                        Daardoor nemen ze minder opslagruimte in en kunnen
-                        ze makkelijker worden verstuurd.
-                    </p>
+                <p>
+                    Ontdek hoe bestanden kleiner worden gemaakt, zodat
+                    ze minder opslagruimte innemen.
+                </p>
 
-                    <a href="compressie.html">Lees meer over compressie →</a>
-                </article>
+                <a href="compressie.html">Lees meer over compressie →</a>
+            </article>
 
-                <article class="kaart">
-                    <h3>Kunstmatige intelligentie</h3>
+            <article class="kaart">
+                <h3>Kunstmatige intelligentie (AI)</h3>
 
-                    <p>
-                        Kunstmatige intelligentie, ook wel AI genoemd,
-                        maakt het mogelijk dat computers taken uitvoeren
-                        waarvoor normaal gesproken menselijke intelligentie
-                        nodig is.
-                    </p>
+                <p>
+                    Leer wat AI is en hoe kunstmatige intelligentie
+                    wordt gebruikt in het dagelijks leven.
+                </p>
 
-                    <a href="ai.html">Lees meer over kunstmatige intelligentie →</a>
-                </article>
+                <a href="ai.html">Lees meer over AI →</a>
+            </article>
 
-            </div>
         </section>
 
-        <section class="over-mij" id="over-mij">
+        <section id="over-mij">
             <h2>Over mij</h2>
 
             <p>
-                Ik ben Twan, ik ben 15 jaar en ik heb een broer die Noah heet.
-                We hebben thuis twee katten en konijnen.
-                Mijn hobby is sporten.
+                Hoi! Ik ben Twan, ik ben 15 jaar en dit is mijn eerste
+                website. Ik heb deze informaticawebsite gemaakt voor
+                een schoolopdracht.
             </p>
 
             <p>
-                Omdat dit mijn eerste website is, leer ik hoe ik met HTML
-                en CSS een website kan maken. Ik vind het leuk om te ontdekken
-                hoe je informatie op een duidelijke manier online kunt zetten.
+                Op deze website laat ik zien wat ik heb geleerd over
+                verschillende onderwerpen binnen informatica, zoals
+                kleurmodellen, het binaire stelsel, compressie en AI.
+            </p>
+
+            <p>
+                Thuis heb ik een broer die Noah heet, twee katten en
+                twee konijnen. In mijn vrije tijd houd ik van sporten.
+            </p>
+
+            <p>
+                Ik hoop dat je mijn website interessant vindt en er
+                iets van kunt leren!
             </p>
         </section>
 
