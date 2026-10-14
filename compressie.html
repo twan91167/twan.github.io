@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compressie - Mijn website</title>
+    <title>Compressie - Mijn informaticawebsite</title>
 
     <style>
         * {
@@ -14,20 +14,25 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
+            background-color: #f0f4f8;
+            color: #263849;
             line-height: 1.6;
         }
 
         header {
-            background-color: #263849;
+            background-color: #183153;
             color: white;
             text-align: center;
             padding: 30px 20px;
         }
 
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
         nav {
-            background-color: #34495e;
+            background-color: #24476b;
             text-align: center;
             padding: 15px;
         }
@@ -45,9 +50,9 @@
         }
 
         main {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 30px auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         section {
@@ -55,42 +60,144 @@
             padding: 25px;
             margin-bottom: 25px;
             border-radius: 10px;
-            box-shadow: 0 2px 8px #ddd;
+            box-shadow: 0 2px 8px #d5dfe8;
         }
 
         h2 {
-            color: #263849;
+            color: #183153;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #24476b;
+        }
+
+        .inhoud-met-afbeelding {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .tekst,
+        .afbeelding {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .afbeelding img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .bijschrift {
+            color: #61758a;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 0;
         }
 
         .voorbeeld {
             background-color: #eaf2f8;
-            padding: 15px;
+            padding: 18px;
             border-radius: 8px;
             margin-top: 15px;
         }
 
+        .soorten {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .soort-kaart {
+            background-color: #f5f9fd;
+            border: 1px solid #d7e5f2;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .soort-kaart h3 {
+            margin-top: 0;
+        }
+
+        .visual {
+            background-color: #eaf2f8;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .bestanden {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .bestand {
+            background-color: white;
+            border: 2px solid #b8cfe4;
+            border-radius: 8px;
+            padding: 12px;
+            min-width: 95px;
+            font-weight: bold;
+        }
+
+        .bestand-klein {
+            background-color: #d7eddf;
+            border-color: #75ad88;
+        }
+
+        .pijl {
+            font-size: 25px;
+            font-weight: bold;
+            color: #24476b;
+        }
+
+        .pixel-afbeelding {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 3px;
+            max-width: 240px;
+            margin: 15px auto;
+        }
+
+        .pixel {
+            aspect-ratio: 1;
+            border-radius: 2px;
+        }
+
+        .vector-tekening {
+            width: 100%;
+            max-width: 240px;
+            height: 170px;
+            margin: 15px auto;
+            display: block;
+        }
+
         .knop {
             display: inline-block;
-            background-color: #263849;
+            background-color: #183153;
             color: white;
             padding: 12px 20px;
             border-radius: 6px;
             text-decoration: none;
             margin-top: 10px;
+            font-weight: bold;
         }
 
         .knop:hover {
-            background-color: #34495e;
+            background-color: #315985;
         }
 
         .youtube-knop {
-            display: inline-block;
             background-color: #c4302b;
-            color: white;
-            padding: 12px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-top: 8px;
         }
 
         .youtube-knop:hover {
@@ -98,20 +205,41 @@
         }
 
         footer {
-            background-color: #263849;
+            background-color: #183153;
             color: white;
             text-align: center;
             padding: 20px;
             margin-top: 30px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 29px;
+            }
+
+            nav {
+                padding: 10px;
+            }
+
             nav a {
-                margin: 8px;
+                margin: 6px 8px;
             }
 
             main {
-                padding: 12px;
+                padding: 0 12px;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            .inhoud-met-afbeelding {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .soorten {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -121,7 +249,7 @@
 
     <header>
         <h1>Compressie</h1>
-        <p>Hoe maak je bestanden kleiner?</p>
+        <p>Ontdek hoe bestanden kleiner worden gemaakt!</p>
     </header>
 
     <nav>
@@ -135,152 +263,370 @@
     <main>
 
         <section>
-            <h2>Wat is compressie?</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Wat is compressie?</h2>
 
-            <p>
-                Compressie betekent dat je een bestand kleiner maakt.
-                Hierdoor neemt het minder opslagruimte in en kun je het
-                vaak sneller versturen via internet.
-            </p>
+                    <p>
+                        Compressie betekent dat je een bestand kleiner maakt.
+                        Hierdoor neemt het minder opslagruimte in en kun je het
+                        vaak sneller versturen via internet.
+                    </p>
 
-            <p>
-                Compressie wordt bijvoorbeeld gebruikt bij foto's, video's,
-                muziek en andere bestanden.
-            </p>
+                    <p>
+                        Compressie wordt bijvoorbeeld gebruikt bij foto's,
+                        video's, muziek en andere bestanden.
+                    </p>
+
+                    <p>
+                        Een kleiner bestand is handig als je weinig opslagruimte
+                        hebt of een bestand snel wilt uploaden of downloaden.
+                    </p>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                        alt="Laptop die wordt gebruikt voor digitale bestanden">
+                    <p class="bijschrift">
+                        Compressie helpt om digitale bestanden kleiner te maken.
+                    </p>
+                </div>
+            </div>
+
+            <div class="visual">
+                <h3>Hoe werkt compressie?</h3>
+
+                <div class="bestanden">
+                    <div class="bestand">
+                        📁 Origineel<br>
+                        <span>10 MB</span>
+                    </div>
+
+                    <div class="pijl">→</div>
+
+                    <div class="bestand bestand-klein">
+                        📦 Gecomprimeerd<br>
+                        <span>4 MB</span>
+                    </div>
+                </div>
+
+                <p>
+                    Dit is een voorbeeld: een bestand van 10 MB wordt kleiner
+                    gemaakt tot 4 MB.
+                </p>
+            </div>
         </section>
 
         <section>
             <h2>Lossless en lossy compressie</h2>
 
-            <div class="voorbeeld">
-                <h3>Lossless compressie</h3>
+            <p>
+                Er zijn twee belangrijke soorten compressie. Het verschil is
+                of er informatie verloren gaat bij het kleiner maken van een bestand.
+            </p>
 
-                <p>
-                    Bij lossless compressie gaat er geen informatie verloren.
-                    Na het uitpakken kun je het originele bestand precies
-                    terugkrijgen. Dit wordt bijvoorbeeld gebruikt bij
-                    ZIP-bestanden.
-                </p>
-            </div>
+            <div class="soorten">
+                <article class="soort-kaart">
+                    <h3>Lossless compressie</h3>
 
-            <div class="voorbeeld">
-                <h3>Lossy compressie</h3>
+                    <p>
+                        Bij lossless compressie gaat er geen informatie verloren.
+                        Na het uitpakken kun je het originele bestand precies
+                        terugkrijgen.
+                    </p>
 
-                <p>
-                    Bij lossy compressie wordt een deel van de informatie
-                    verwijderd om het bestand kleiner te maken. Je merkt
-                    het kwaliteitsverlies soms bijna niet. Dit wordt
-                    bijvoorbeeld gebruikt bij JPEG-foto's en sommige video's.
-                </p>
+                    <div class="visual">
+                        <div class="bestanden">
+                            <div class="bestand">Origineel</div>
+                            <div class="pijl">↔</div>
+                            <div class="bestand bestand-klein">Hersteld</div>
+                        </div>
+                        <p>Het bestand blijft precies hetzelfde.</p>
+                    </div>
+
+                    <p>
+                        Voorbeelden zijn ZIP-bestanden en PNG-afbeeldingen.
+                    </p>
+                </article>
+
+                <article class="soort-kaart">
+                    <h3>Lossy compressie</h3>
+
+                    <p>
+                        Bij lossy compressie wordt een deel van de informatie
+                        verwijderd om het bestand kleiner te maken. Daardoor
+                        kan de kwaliteit iets achteruitgaan.
+                    </p>
+
+                    <div class="visual">
+                        <div class="bestanden">
+                            <div class="bestand">Origineel</div>
+                            <div class="pijl">→</div>
+                            <div class="bestand bestand-klein">Kleiner</div>
+                        </div>
+                        <p>Het bestand is kleiner, maar kan kwaliteit verliezen.</p>
+                    </div>
+
+                    <p>
+                        Voorbeelden zijn JPEG-foto's en veel video's.
+                    </p>
+                </article>
             </div>
         </section>
 
         <section>
-            <h2>Wat is een bitmap?</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Wat is een bitmap?</h2>
 
-            <p>
-                Een bitmapafbeelding bestaat uit heel veel kleine puntjes.
-                Die puntjes noemen we pixels. Elke pixel heeft een eigen
-                kleur. Samen vormen de pixels de afbeelding.
-            </p>
+                    <p>
+                        Een bitmapafbeelding bestaat uit heel veel kleine
+                        puntjes. Die puntjes noemen we pixels. Elke pixel
+                        heeft een eigen kleur. Samen vormen de pixels de afbeelding.
+                    </p>
 
-            <p>
-                Foto's die je met een telefoon maakt, zijn meestal
-                bitmapafbeeldingen. Als je zo'n afbeelding heel ver vergroot,
-                kun je de losse pixels zien.
-            </p>
+                    <p>
+                        Foto's die je met een telefoon maakt, zijn meestal
+                        bitmapafbeeldingen. Als je zo'n afbeelding heel ver
+                        vergroot, kun je de losse pixels zien.
+                    </p>
 
-            <div class="voorbeeld">
-                <h3>Voordelen en nadelen</h3>
+                    <div class="voorbeeld">
+                        <h3>Voordelen en nadelen</h3>
+                        <p>
+                            <strong>Voordeel:</strong> geschikt voor foto's
+                            met veel details en kleuren.
+                        </p>
+                        <p>
+                            <strong>Nadeel:</strong> bij sterk vergroten kan
+                            de afbeelding blokkerig worden.
+                        </p>
+                    </div>
+                </div>
 
-                <p>
-                    Voordeel: bitmap is geschikt voor foto's met veel
-                    details en kleuren.
-                </p>
+                <div class="afbeelding">
+                    <div class="visual">
+                        <h3>Een bitmap bestaat uit pixels</h3>
 
-                <p>
-                    Nadeel: als je een bitmap te ver vergroot, wordt de
-                    afbeelding vaak blokkerig of onscherp.
-                </p>
+                        <div class="pixel-afbeelding">
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#ffffff"></div>
+                            <div class="pixel" style="background:#ffffff"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#164e80"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#2788c4"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#5bb4e5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                            <div class="pixel" style="background:#9bd7f5"></div>
+                        </div>
+
+                        <p>
+                            Als je pixels sterk vergroot, zie je de afzonderlijke blokjes.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>Wat is een vectorafbeelding?</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Wat is een vectorafbeelding?</h2>
 
-            <p>
-                Een vectorafbeelding bestaat niet uit pixels, maar uit vormen,
-                lijnen en punten die met wiskundige informatie worden beschreven.
-                De computer berekent hoe de afbeelding eruit moet zien.
-            </p>
+                    <p>
+                        Een vectorafbeelding bestaat niet uit pixels, maar uit
+                        vormen, lijnen en punten die met wiskundige informatie
+                        worden beschreven. De computer berekent hoe de afbeelding
+                        eruit moet zien.
+                    </p>
 
-            <p>
-                Logo's en eenvoudige tekeningen worden vaak als vector
-                opgeslagen. Je kunt een vectorafbeelding groter of kleiner
-                maken zonder dat de randen blokkerig worden.
-            </p>
+                    <p>
+                        Logo's en eenvoudige tekeningen worden vaak als vector
+                        opgeslagen. Je kunt een vectorafbeelding groter of kleiner
+                        maken zonder dat de randen blokkerig worden.
+                    </p>
 
-            <div class="voorbeeld">
-                <h3>Voordelen en nadelen</h3>
+                    <div class="voorbeeld">
+                        <h3>Voordelen en nadelen</h3>
+                        <p>
+                            <strong>Voordeel:</strong> blijft scherp bij het vergroten.
+                        </p>
+                        <p>
+                            <strong>Nadeel:</strong> minder geschikt voor foto's met
+                            heel veel details en kleurverlopen.
+                        </p>
+                    </div>
+                </div>
 
-                <p>
-                    Voordeel: een vectorafbeelding blijft scherp, ook als
-                    je hem heel groot maakt.
-                </p>
+                <div class="afbeelding">
+                    <div class="visual">
+                        <h3>Een vector bestaat uit vormen</h3>
 
-                <p>
-                    Nadeel: vector is minder geschikt voor gewone foto's
-                    met heel veel kleine details en kleurverlopen.
-                </p>
+                        <svg class="vector-tekening"
+                             viewBox="0 0 240 170"
+                             role="img"
+                             aria-label="Voorbeeld van een vectorafbeelding met geometrische vormen">
+                            <rect x="20" y="20" width="200" height="130"
+                                  rx="12" fill="#dcecf9"/>
+                            <circle cx="120" cy="62" r="30"
+                                    fill="#f4c542"/>
+                            <path d="M45 130 L95 78 L130 115 L158 90 L200 130 Z"
+                                  fill="#4b9b76"/>
+                            <path d="M45 130 L95 78 L130 115 L158 90 L200 130"
+                                  fill="none" stroke="#183153" stroke-width="3"/>
+                        </svg>
+
+                        <p>
+                            De vormen blijven scherp als je ze groter maakt.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section>
             <h2>Bitmap en vector vergelijken</h2>
 
-            <p>
-                Het belangrijkste verschil is de manier waarop de afbeelding
-                wordt opgebouwd. Een bitmap gebruikt pixels en een vector
-                gebruikt berekende vormen en lijnen.
-            </p>
+            <div class="soorten">
+                <div class="soort-kaart">
+                    <h3>Bitmap</h3>
+                    <p>
+                        Bestaat uit pixels en is geschikt voor foto's.
+                        Bij sterk vergroten kunnen de pixels zichtbaar worden.
+                    </p>
+                </div>
 
-            <div class="voorbeeld">
-                <p><strong>Bitmap:</strong> geschikt voor foto's.</p>
-                <p><strong>Vector:</strong> geschikt voor logo's en pictogrammen.</p>
-                <p>
-                    Een bitmap kan onscherp worden bij het vergroten.
-                    Een vector blijft scherp bij het vergroten.
-                </p>
+                <div class="soort-kaart">
+                    <h3>Vector</h3>
+                    <p>
+                        Bestaat uit vormen en lijnen en is geschikt voor logo's
+                        en pictogrammen. De afbeelding blijft scherp bij het vergroten.
+                    </p>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>Wat heb ik geleerd?</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Wat heb ik geleerd?</h2>
 
-            <p>
-                Ik heb geleerd dat compressie bestanden kleiner maakt.
-                Bij lossless compressie gaat geen informatie verloren,
-                terwijl bij lossy compressie een deel van de informatie
-                wordt verwijderd. Ik weet nu ook dat bitmapafbeeldingen
-                uit pixels bestaan en vectorafbeeldingen uit vormen en lijnen.
-            </p>
+                    <p>
+                        Ik heb geleerd dat compressie bestanden kleiner maakt.
+                        Bij lossless compressie gaat geen informatie verloren,
+                        terwijl bij lossy compressie een deel van de informatie
+                        wordt verwijderd.
+                    </p>
+
+                    <p>
+                        Ik weet nu ook dat bitmapafbeeldingen uit pixels bestaan
+                        en vectorafbeeldingen uit vormen en lijnen. Welke techniek
+                        je gebruikt, hangt af van het soort bestand en het doel.
+                    </p>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+                        alt="Elektronische onderdelen op een computerprintplaat">
+                    <p class="bijschrift">
+                        Digitale bestanden kunnen op verschillende manieren worden opgeslagen.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <section>
-            <h2>Video over compressie</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Video over compressie</h2>
 
-            <p>
-                Wil je liever naar een uitleg kijken? Via de link hieronder
-                kun je Nederlandstalige YouTube-video's vinden waarin
-                compressie wordt uitgelegd.
-            </p>
+                    <p>
+                        Wil je liever een uitleg bekijken? Via de link hieronder
+                    kun je Nederlandstalige YouTube-video's vinden waarin
+                        compressie wordt uitgelegd.
+                    </p>
 
-            <a class="youtube-knop"
-               href="https://www.youtube.com/results?search_query=compressie+uitleg+Nederlands"
-               target="_blank"
-               rel="noopener noreferrer">
-                Bekijk uitleg over compressie op YouTube
-            </a>
+                    <a class="knop youtube-knop"
+                       href="https://www.youtube.com/results?search_query=compressie+uitleg+Nederlands"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ▶ Bekijk uitleg over compressie
+                    </a>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+                        alt="Laptop met code op het scherm">
+                    <p class="bijschrift">
+                        Bekijk online uitleg om meer over compressie te leren.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <a class="knop" href="index.html">← Terug naar home</a>
