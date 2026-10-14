@@ -57,7 +57,8 @@
         }
 
         nav a:hover,
-        .dropdown:hover .dropdown-knop {
+        .dropdown:hover .dropdown-knop,
+        .dropdown:focus-within .dropdown-knop {
             background-color: #315985;
         }
 
@@ -94,6 +95,10 @@
             padding: 0 20px;
         }
 
+        h2 {
+            color: #183153;
+        }
+
         .intro {
             background-color: white;
             padding: 25px;
@@ -102,6 +107,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
+        /* Onderwerpen */
         .kaarten {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -130,6 +136,51 @@
             text-decoration: underline;
         }
 
+        /* Invoer, verwerking en uitvoer */
+        .uitleg-i-v-u {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .i-v-u-kaarten {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .i-v-u-kaart {
+            background-color: #eaf2f8;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border-top: 5px solid #477eae;
+        }
+
+        .i-v-u-kaart h3 {
+            color: #203f68;
+            margin-top: 5px;
+        }
+
+        .icoon {
+            font-size: 42px;
+            margin: 5px 0;
+        }
+
+        .stappen {
+            text-align: center;
+            font-weight: bold;
+            color: #24476b;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+        }
+
+        /* Over mij */
         #over-mij {
             background-color: white;
             padding: 25px;
@@ -145,6 +196,37 @@
             padding: 15px;
             margin-top: 40px;
         }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Mobiele versie */
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 29px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav > a,
+            .dropdown-knop {
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown-inhoud {
+                position: static;
+                box-shadow: none;
+            }
+
+            .i-v-u-kaarten {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -159,7 +241,9 @@
         <a href="index.html">Home</a>
 
         <div class="dropdown">
-            <button class="dropdown-knop">Onderwerpen ▼</button>
+            <button class="dropdown-knop" aria-haspopup="true">
+                Onderwerpen ▼
+            </button>
 
             <div class="dropdown-inhoud">
                 <a href="kleurmodellen.html">Kleurmodellen</a>
@@ -169,6 +253,7 @@
             </div>
         </div>
 
+        <a href="#invoer-verwerking-uitvoer">Invoer, verwerking en uitvoer</a>
         <a href="#over-mij">Over mij</a>
     </nav>
 
@@ -186,8 +271,8 @@
             <p>
                 Je kunt hier informatie vinden over kleurmodellen,
                 het binaire stelsel, compressie en kunstmatige
-                intelligentie. Klik op een onderwerp om er meer over
-                te leren.
+                intelligentie. Ook leer je hoe een computer informatie
+                verwerkt via invoer, verwerking en uitvoer.
             </p>
         </section>
 
@@ -241,6 +326,100 @@
 
         </section>
 
+        <!-- Nieuw onderdeel: invoer, verwerking en uitvoer -->
+        <section class="uitleg-i-v-u" id="invoer-verwerking-uitvoer">
+
+            <h2>Invoer, verwerking en uitvoer</h2>
+
+            <p>
+                Een computer werkt vaak volgens drie stappen:
+                invoer, verwerking en uitvoer. De computer ontvangt
+                eerst informatie, verwerkt deze informatie en geeft
+                daarna een resultaat.
+            </p>
+
+            <div class="i-v-u-kaarten">
+
+                <article class="i-v-u-kaart">
+                    <div class="icoon" aria-hidden="true">⌨️</div>
+
+                    <h3>1. Invoer</h3>
+
+                    <p>
+                        Bij invoer geef je informatie aan een computer.
+                        Dat kan bijvoorbeeld met een toetsenbord, muis,
+                        microfoon of touchscreen.
+                    </p>
+
+                    <p>
+                        <strong>Voorbeeld:</strong> je typt twee getallen
+                        in op je toetsenbord.
+                    </p>
+                </article>
+
+                <article class="i-v-u-kaart">
+                    <div class="icoon" aria-hidden="true">⚙️</div>
+
+                    <h3>2. Verwerking</h3>
+
+                    <p>
+                        De computer verwerkt de ingevoerde informatie.
+                        Een programma voert opdrachten uit en berekent
+                        bijvoorbeeld een antwoord.
+                    </p>
+
+                    <p>
+                        <strong>Voorbeeld:</strong> de computer telt
+                        de twee getallen bij elkaar op.
+                    </p>
+                </article>
+
+                <article class="i-v-u-kaart">
+                    <div class="icoon" aria-hidden="true">🖥️</div>
+
+                    <h3>3. Uitvoer</h3>
+
+                    <p>
+                        Bij uitvoer laat de computer het resultaat zien
+                        of horen. Dat gebeurt bijvoorbeeld via een
+                        beeldscherm, luidspreker of printer.
+                    </p>
+
+                    <p>
+                        <strong>Voorbeeld:</strong> het antwoord verschijnt
+                        op het beeldscherm.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="stappen">
+                Invoer → Verwerking → Uitvoer
+            </div>
+
+            <div class="intro" style="margin-top: 20px; margin-bottom: 0;">
+                <h3>Een voorbeeld uit het dagelijks leven</h3>
+
+                <p>
+                    Stel dat je op een rekenmachine de som
+                    <strong>5 + 3</strong> invoert.
+                </p>
+
+                <p>
+                    <strong>Invoer:</strong> je drukt op de knoppen 5, +, 3 en =.
+                </p>
+
+                <p>
+                    <strong>Verwerking:</strong> de rekenmachine berekent de som.
+                </p>
+
+                <p>
+                    <strong>Uitvoer:</strong> het antwoord 8 verschijnt op het scherm.
+                </p>
+            </div>
+
+        </section>
+
         <section id="over-mij">
             <h2>Over mij</h2>
 
@@ -254,6 +433,8 @@
                 Op deze website laat ik zien wat ik heb geleerd over
                 verschillende onderwerpen binnen informatica, zoals
                 kleurmodellen, het binaire stelsel, compressie en AI.
+                Ook leer ik hoe computers gegevens invoeren, verwerken
+                en als uitvoer laten zien.
             </p>
 
             <p>
