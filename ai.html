@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI - Mijn website</title>
+    <title>AI - Mijn informaticawebsite</title>
 
     <style>
         * {
@@ -14,13 +14,13 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
+            background-color: #f0f4f8;
+            color: #263849;
             line-height: 1.6;
         }
 
         header {
-            background-color: #263849;
+            background-color: #183153;
             color: white;
             text-align: center;
             padding: 30px 20px;
@@ -31,7 +31,7 @@
         }
 
         nav {
-            background-color: #34495e;
+            background-color: #24476b;
             text-align: center;
             padding: 15px;
         }
@@ -49,9 +49,9 @@
         }
 
         main {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 30px auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         section {
@@ -59,11 +59,44 @@
             padding: 25px;
             margin-bottom: 25px;
             border-radius: 10px;
-            box-shadow: 0 2px 8px #ddd;
+            box-shadow: 0 2px 8px #d5dfe8;
         }
 
         h2 {
-            color: #263849;
+            color: #183153;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #24476b;
+        }
+
+        .inhoud-met-afbeelding {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .tekst,
+        .afbeelding {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .afbeelding img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .bijschrift {
+            color: #61758a;
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 0;
         }
 
         .voorbeeld {
@@ -75,27 +108,21 @@
 
         .knop {
             display: inline-block;
-            background-color: #263849;
+            background-color: #183153;
             color: white;
             padding: 12px 20px;
             border-radius: 6px;
             text-decoration: none;
             margin-top: 10px;
+            font-weight: bold;
         }
 
         .knop:hover {
-            background-color: #34495e;
+            background-color: #315985;
         }
 
         .youtube-knop {
-            display: inline-block;
             background-color: #c4302b;
-            color: white;
-            padding: 12px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            margin-top: 10px;
-            font-weight: bold;
         }
 
         .youtube-knop:hover {
@@ -103,24 +130,33 @@
         }
 
         footer {
-            background-color: #263849;
+            background-color: #183153;
             color: white;
             text-align: center;
             padding: 20px;
             margin-top: 30px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 29px;
+            }
+
             nav a {
                 margin: 8px;
             }
 
             main {
-                padding: 12px;
+                padding: 0 12px;
             }
 
             section {
                 padding: 18px;
+            }
+
+            .inhoud-met-afbeelding {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
     </style>
@@ -143,22 +179,37 @@
 
     <main>
 
+        <!-- Uitleg over kunstmatige intelligentie -->
         <section>
-            <h2>Wat is AI?</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Wat is AI?</h2>
 
-            <p>
-                AI betekent Artificial Intelligence. In het Nederlands noemen
-                we dit kunstmatige intelligentie. AI is technologie waarmee
-                computers taken kunnen uitvoeren waarvoor normaal gesproken
-                menselijke intelligentie nodig is.
-            </p>
+                    <p>
+                        AI betekent Artificial Intelligence. In het Nederlands
+                        noemen we dit kunstmatige intelligentie. AI is technologie
+                        waarmee computers taken kunnen uitvoeren waarvoor normaal
+                        gesproken menselijke intelligentie nodig is.
+                    </p>
 
-            <p>
-                AI kan bijvoorbeeld vragen beantwoorden, teksten schrijven,
-                informatie samenvatten en moeilijke onderwerpen uitleggen.
-            </p>
+                    <p>
+                        AI kan bijvoorbeeld vragen beantwoorden, teksten schrijven,
+                        informatie samenvatten en moeilijke onderwerpen uitleggen.
+                    </p>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
+                        alt="Digitale illustratie die kunstmatige intelligentie voorstelt">
+                    <p class="bijschrift">
+                        AI kan informatie verwerken en helpen bij verschillende taken.
+                    </p>
+                </div>
+            </div>
         </section>
 
+        <!-- Voorbeelden van AI gebruiken voor school -->
         <section>
             <h2>Waar gebruik ik AI voor?</h2>
 
@@ -167,100 +218,159 @@
                 beter te begrijpen en om mijn huiswerk te maken.
             </p>
 
-            <div class="voorbeeld">
-                <h3>Samenvattingen maken</h3>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <div class="voorbeeld">
+                        <h3>Samenvattingen maken</h3>
 
-                <p>
-                    Als ik veel tekst moet leren, kan ik AI vragen om een
-                    samenvatting te maken. Zo kan ik de belangrijkste informatie
-                    sneller terugvinden en leren voor een toets.
-                </p>
-            </div>
+                        <p>
+                            Als ik veel tekst moet leren, kan ik AI vragen om een
+                            samenvatting te maken. Zo kan ik de belangrijkste
+                            informatie sneller terugvinden en leren voor een toets.
+                        </p>
+                    </div>
 
-            <div class="voorbeeld">
-                <h3>Uitleg over mijn huiswerk</h3>
+                    <div class="voorbeeld">
+                        <h3>Uitleg over mijn huiswerk</h3>
 
-                <p>
-                    Als ik een opdracht niet begrijp, kan ik AI vragen om het
-                    stap voor stap uit te leggen. Daardoor kan ik beter begrijpen
-                    hoe ik zelf tot het antwoord kom.
-                </p>
+                        <p>
+                            Als ik een opdracht niet begrijp, kan ik AI vragen om
+                            het stap voor stap uit te leggen. Daardoor kan ik beter
+                            begrijpen hoe ik zelf tot het antwoord kom.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=80"
+                        alt="Schoolwerk en aantekeningen op een bureau">
+                    <p class="bijschrift">
+                        AI kan helpen bij het leren en maken van schoolopdrachten.
+                    </p>
+                </div>
             </div>
         </section>
 
+        <!-- Leren door goede vragen te stellen -->
         <section>
-            <h2>Kun je leren van AI?</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Kun je leren van AI?</h2>
 
-            <p>
-                Ja, je kunt zeker van AI leren. Het ligt er wel aan hoe je
-                de vragen stelt en wat je met de antwoorden doet.
-            </p>
+                    <p>
+                        Ja, je kunt zeker van AI leren. Het ligt er wel aan hoe
+                        je de vragen stelt en wat je met de antwoorden doet.
+                    </p>
 
-            <p>
-                Als je alleen het antwoord vraagt en het overschrijft, leer je
-                er vaak minder van. Maar als je vraagt om een duidelijke uitleg,
-                voorbeelden of stappen, kun je het onderwerp zelf beter begrijpen.
-            </p>
+                    <p>
+                        Als je alleen het antwoord vraagt en het overschrijft,
+                        leer je er vaak minder van. Maar als je vraagt om een
+                        duidelijke uitleg, voorbeelden of stappen, kun je het
+                        onderwerp zelf beter begrijpen.
+                    </p>
 
-            <div class="voorbeeld">
-                <h3>Een goede vraag stellen</h3>
+                    <div class="voorbeeld">
+                        <h3>Een goede vraag stellen</h3>
 
-                <p>
-                    In plaats van: "Geef mij het antwoord op deze som."
-                    kun je beter vragen:
-                    "Leg stap voor stap uit hoe ik deze som zelf kan oplossen."
-                </p>
+                        <p>
+                            In plaats van: "Geef mij het antwoord op deze som."
+                            kun je beter vragen:
+                            "Leg stap voor stap uit hoe ik deze som zelf kan oplossen."
+                        </p>
 
-                <p>
-                    Op die manier gebruik je AI als hulpmiddel om iets te leren
-                    in plaats van alleen antwoorden over te nemen.
-                </p>
+                        <p>
+                            Zo gebruik je AI als hulpmiddel om iets te leren
+                            in plaats van alleen antwoorden over te nemen.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80"
+                        alt="Persoon die informatie bestudeert en aantekeningen maakt">
+                    <p class="bijschrift">
+                        Door uitleg te begrijpen, leer je meer dan door alleen
+                        een antwoord over te nemen.
+                    </p>
+                </div>
             </div>
         </section>
 
+        <!-- AI gebruiken op een smartphone -->
         <section>
-            <h2>AI op mijn iPhone 13</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>AI op mijn iPhone 13</h2>
 
-            <p>
-                Ik heb een iPhone 13 en gebruik AI op een vergelijkbare manier
-                als op een computer. Op mijn telefoon kan ik AI gebruiken om
-                vragen te stellen, samenvattingen te maken en uitleg over mijn
-                huiswerk te krijgen.
-            </p>
+                    <p>
+                        Ik heb een iPhone 13 en gebruik AI op een vergelijkbare
+                        manier als op een computer. Op mijn telefoon kan ik AI
+                        gebruiken om vragen te stellen, samenvattingen te maken
+                        en uitleg over mijn huiswerk te krijgen.
+                    </p>
 
-            <p>
-                Ik kan mijn telefoon er gemakkelijk bij pakken als ik iets niet
-                begrijp of snel iets wil opzoeken. Zo kan AI mij ook helpen
-                wanneer ik niet achter mijn computer zit.
-            </p>
+                    <p>
+                        Ik kan mijn telefoon er gemakkelijk bij pakken als ik
+                        iets niet begrijp of snel iets wil opzoeken. Zo kan AI
+                        mij ook helpen wanneer ik niet achter mijn computer zit.
+                    </p>
 
-            <div class="voorbeeld">
-                <h3>AI als hulpmiddel</h3>
+                    <div class="voorbeeld">
+                        <h3>AI als hulpmiddel</h3>
 
-                <p>
-                    Mijn iPhone 13 is een apparaat waarop ik AI-diensten kan
-                    gebruiken, bijvoorbeeld via een app of website.
-                    Niet iedere AI-functie is standaard beschikbaar op mijn telefoon.
-                </p>
+                        <p>
+                            Mijn iPhone 13 is een apparaat waarop ik AI-diensten
+                            kan gebruiken, bijvoorbeeld via een app of website.
+                            Niet iedere AI-functie is standaard beschikbaar
+                            op mijn telefoon.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
+                        alt="Smartphone die gebruikt kan worden voor online diensten">
+                    <p class="bijschrift">
+                        Met een smartphone kun je AI-diensten via apps en websites gebruiken.
+                    </p>
+                </div>
             </div>
         </section>
 
+        <!-- Veilig en kritisch omgaan met AI -->
         <section>
             <h2>Waar moet je op letten?</h2>
 
-            <p>
-                AI is handig, maar de antwoorden zijn niet altijd goed.
-                Soms maakt AI fouten of geeft het informatie die niet klopt.
-                Daarom is het slim om belangrijke informatie te controleren.
-            </p>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <p>
+                        AI is handig, maar de antwoorden zijn niet altijd goed.
+                        Soms maakt AI fouten of geeft het informatie die niet klopt.
+                        Daarom is het slim om belangrijke informatie te controleren.
+                    </p>
 
-            <p>
-                Je moet ook voorzichtig zijn met persoonlijke informatie
-                die je met AI deelt. Bij schoolwerk is het belangrijk dat
-                je zelf blijft nadenken en begrijpt wat je inlevert.
-            </p>
+                    <p>
+                        Je moet ook voorzichtig zijn met persoonlijke informatie
+                        die je met AI deelt. Bij schoolwerk is het belangrijk
+                        dat je zelf blijft nadenken en begrijpt wat je inlevert.
+                    </p>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                        alt="Laptop die wordt gebruikt om online informatie te bekijken">
+                    <p class="bijschrift">
+                        Controleer informatie en denk zelf kritisch na.
+                    </p>
+                </div>
+            </div>
         </section>
 
+        <!-- Samenvatting van wat ik heb geleerd -->
         <section>
             <h2>Wat heb ik geleerd?</h2>
 
@@ -278,21 +388,35 @@
             </p>
         </section>
 
+        <!-- Link naar video's over AI -->
         <section>
-            <h2>Video over kunstmatige intelligentie</h2>
+            <div class="inhoud-met-afbeelding">
+                <div class="tekst">
+                    <h2>Video over kunstmatige intelligentie</h2>
 
-            <p>
-                Wil je meer leren over AI? Via de link hieronder kun je
-                Nederlandstalige YouTube-video's bekijken die uitleggen
-                wat kunstmatige intelligentie is en hoe het werkt.
-            </p>
+                    <p>
+                        Wil je meer leren over AI? Via de link hieronder kun je
+                        Nederlandstalige YouTube-video's bekijken die uitleggen
+                        wat kunstmatige intelligentie is en hoe het werkt.
+                    </p>
 
-            <a class="youtube-knop"
-               href="https://www.youtube.com/results?search_query=kunstmatige+intelligentie+AI+uitleg+Nederlands"
-               target="_blank"
-               rel="noopener noreferrer">
-                Bekijk uitlegvideo's over AI op YouTube
-            </a>
+                    <a class="knop youtube-knop"
+                       href="https://www.youtube.com/results?search_query=kunstmatige+intelligentie+AI+uitleg+Nederlands"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ▶ Bekijk uitlegvideo's over AI
+                    </a>
+                </div>
+
+                <div class="afbeelding">
+                    <img
+                        src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80"
+                        alt="Robot als voorbeeld van kunstmatige intelligentie">
+                    <p class="bijschrift">
+                        AI wordt in steeds meer digitale toepassingen gebruikt.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <a class="knop" href="index.html">← Terug naar home</a>
